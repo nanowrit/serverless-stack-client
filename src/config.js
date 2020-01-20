@@ -1,4 +1,6 @@
 export default {
+  STRIPE_KEY: "pk_test_mFOTEjCRlK8aWZYn2OBtz5PD00C6giAjRT",
+  MAX_ATTACHMENT_SIZE: 5000000,
     s3: {
       REGION: "us-west-2",
       BUCKET: "nanowrit-notes-uploads"
