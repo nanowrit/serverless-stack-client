@@ -1,1 +1,0 @@
-A Create React App template to go with the tutorial at [serverless-stack](https://serverless-stack.com)
