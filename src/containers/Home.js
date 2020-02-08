@@ -44,7 +44,7 @@ export default function Home(props) {
         <LinkContainer key="new" to="/notes/new">
           <ListGroupItem>
             <h4>
-              <b>{"\uFF0B"}</b> Create a new scene
+              <b>{"\uFF0B"}</b> Create a new note
             </h4>
           </ListGroupItem>
         </LinkContainer>
@@ -72,7 +72,7 @@ export default function Home(props) {
   function renderNotes() {
     return (
       <div className="notes">
-        <PageHeader>Your Scenes</PageHeader>
+        <PageHeader>Your Notes</PageHeader>
         <ListGroup>
           {!isLoading && renderNotesList(notes)}
         </ListGroup>

@@ -8,7 +8,7 @@ import "./NewNote.css";
 
 export default function NewNote(props) {
   const file = useRef(null);
-  const [content, setContent] = useState("Goal: \n\n\nConflict: \n\n\nDisaster: \n\n\nDilemma: \n\n\nDecision: \n\n\nAction: \n\n\n");
+  const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm() {
