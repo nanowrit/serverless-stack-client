@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
@@ -50,6 +51,7 @@ export default function Login(props) {
             onChange={handleFieldChange}
           />
         </FormGroup>
+        <Link to="/login/reset">Forgot password?</Link>
         <LoaderButton
           block
           type="submit"
