@@ -52,7 +52,6 @@ export default function Settings(props) {
           <LoaderButton
             block
             bsSize="large"
-            text="Change Password"
           >
             Change Password
           </LoaderButton>

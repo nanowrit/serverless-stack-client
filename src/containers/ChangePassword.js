@@ -89,7 +89,7 @@ export default class ChangePassword extends Component {
             disabled={!this.validateForm()}
             isLoading={this.state.isChanging}
           >
-              Change Password
+            Change Password
           </LoaderButton>
         </form>
       </div>

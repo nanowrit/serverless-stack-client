@@ -141,11 +141,12 @@ export default class ResetPassword extends Component {
           block
           type="submit"
           bsSize="large"
-          text="Confirm"
           loadingText="Confirm…"
           isLoading={this.state.isConfirming}
           disabled={!this.validateResetForm()}
-        />
+        >
+          Confirm
+        </LoaderButton>
       </form>
     );
   }

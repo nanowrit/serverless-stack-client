@@ -6,11 +6,11 @@
   }
   
   .Settings .LoaderButton:last-child {
-    margin-top: 15px;
+    margin-top: 5px;
   }
 
-    .Settings form {
-      margin: 0 auto;
-      max-width: 480px;
+  .Settings form {
+     margin: 0 auto;
+     max-width: 480px;
     }
   }

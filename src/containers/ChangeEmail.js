@@ -114,11 +114,12 @@ export default class ChangeEmail extends Component {
           block
           type="submit"
           bsSize="large"
-          text="Confirm"
           loadingText="Confirm…"
           isLoading={this.state.isConfirming}
           disabled={!this.validateConfirmForm()}
-        />
+        >
+          Confirm
+        </LoaderButton>
       </form>
     );
   }
