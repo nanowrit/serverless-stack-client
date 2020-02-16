@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
+import FacebookButton from "../components/FacebookButton";
 
 import {
   HelpBlock,
@@ -50,6 +51,10 @@ export default function Signup(props) {
       setIsLoading(false);
     }
   }
+
+  async function handleFbLogin() {
+    props.userHasAuthenticated(true);
+  };
   
   async function handleConfirmationSubmit(event) {
     event.preventDefault();
@@ -96,7 +101,10 @@ export default function Signup(props) {
 
   function renderForm() {
     return (
-      <form onSubmit={handleSubmit}>
+      <div>
+        <FacebookButton onLogin={handleFbLogin} />
+        <hr />
+        <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl
@@ -132,6 +140,7 @@ export default function Signup(props) {
           Signup
         </LoaderButton>
       </form>
+      </div>
     );
   }
 

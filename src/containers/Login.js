@@ -4,6 +4,7 @@ import { Auth } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import { useFormFields } from "../libs/hooksLib";
+import FacebookButton from "../components/FacebookButton";
 import "./Login.css";
 
 export default function Login(props) {
@@ -31,8 +32,14 @@ export default function Login(props) {
     }
   }
 
+  async function handleFbLogin() {
+    props.userHasAuthenticated(true);
+  };
+
   return (
     <div className="Login">
+      <FacebookButton className="FacebookButton" onLogin={handleFbLogin} />
+      <hr />
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
