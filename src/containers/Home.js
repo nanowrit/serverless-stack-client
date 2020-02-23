@@ -201,14 +201,14 @@ export default function Home(props) {
             {recommitment.goal}
             <h3>The Conflict</h3>
             {recommitment.conflictField}
-            <h3>Then Disaster Strikes</h3>
-            {recommitment.disaster}
-            <h3>The Dilemma</h3>
-            {recommitment.dilemma}
-            <h3>The Decision</h3>
-            {recommitment.decision}
-            <h3>The Action</h3>
-            {recommitment.actionField}
+            <h3>Then Revelation</h3>
+            {recommitment.revelation}
+            <h3>Praising the Enemy</h3>
+            {recommitment.praiseTheEnemy}
+            <h3>Do or Die</h3>
+            {recommitment.doOrDie}
+            <h3>Crossing the Threshold II</h3>
+            {recommitment.crossThreshold}
           </ListGroupItem>
         </LinkContainer>
       ) : (
@@ -240,7 +240,7 @@ export default function Home(props) {
             {climax.poeticJustice}
             <h3>Poetic Reward</h3>
             {climax.poeticReward}
-            <h3>Warp it Up</h3>
+            <h3>Wrap it Up</h3>
             {climax.wrapUp}
           </ListGroupItem>
         </LinkContainer>
@@ -299,7 +299,7 @@ export default function Home(props) {
         </ListGroup>
         <h2>The Climax</h2>
         <ListGroup>
-        {!isLoading && renderRecommitmentList(climaxs)}
+        {!isLoading && renderClimaxList(climaxs)}
         </ListGroup>
       </div>
     );

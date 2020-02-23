@@ -6,49 +6,43 @@ import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
 import "../../containers/Notes.css";
 
-export default function Beginning(props) {
+export default function Filler(props) {
     const file = useRef(null);
-    const [beginning, setBeginning] = useState(null);
-    const [hook, setHook] = useState("");
-    const [backstory, setBackstory] = useState("");
-    const [incitingIncident, setIncitingIncident] = useState("");
-    const [triggerEvent, setTriggerEvent] = useState("");
-    const [debate, setDebate] = useState("");
+    const [filler, setFiller] = useState(null);
+    const [goal, setGoal] = useState("");
+    const [conflictField, setConflictField] = useState("");
+    const [dilemma, setDilemma] = useState("");
     const [decision, setDecision] = useState("");
-    const [threshold, setThreshold] = useState("");
+    const [actionField, setActionField] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    function loadBeginning() {
-      return API.get("beginnings", `/beginnings/${props.match.params.id}`);
+    function loadFiller() {
+      return API.get("fillers", `/fillers/${props.match.params.id}`);
     }
 
     async function onLoad() {
       try {
-        const beginning = await loadBeginning();
+        const filler = await loadFiller();
         const { 
-          hook, 
-          backstory, 
-          incitingIncident,
-          triggerEvent, 
-          debate,
-          decision,
-          threshold,
-          attachment } = beginning;
+          goal, 
+          conflictField, 
+          dilemma,
+          decision, 
+          actionField,
+          attachment } = filler;
 
         if (attachment) {
-          beginning.attachmentURL = await Storage.vault.get(attachment);
+          filler.attachmentURL = await Storage.vault.get(attachment);
         }
 
-        setHook(hook);
-        setBackstory(backstory);
-        setIncitingIncident(incitingIncident);
-        setTriggerEvent(triggerEvent);
-        setDebate(debate);
+        setGoal(goal);
+        setConflictField(conflictField);
+        setDilemma(dilemma);
         setDecision(decision);
-        setThreshold(threshold);
-        setBeginning(beginning);
+        setActionField(actionField);
+        setFiller(filler);
       } catch (e) {
         alert(e);
       }
@@ -58,7 +52,7 @@ export default function Beginning(props) {
   }, [props.match.params.id]);
 
   function validateForm() {
-    return hook.length > 0 || backstory.length > 0 || incitingIncident.length > 0 || triggerEvent.length > 0 || debate.length > 0 || decision.length > 0 || threshold.length > 0;
+    return goal.length > 0 || conflictField.length > 0 || dilemma.length > 0 || decision.length > 0|| actionField.length > 0;
   }
   
   function formatFilename(str) {
@@ -69,9 +63,9 @@ export default function Beginning(props) {
     file.current = event.target.files[0];
   }
   
-  function saveBeginning(beginning) {
-    return API.put("beginnings", `/beginnings/${props.match.params.id}`, {
-      body: beginning
+  function saveFiller(filler) {
+    return API.put("fillers", `/fillers/${props.match.params.id}`, {
+      body: filler
     });
   }
   
@@ -95,15 +89,13 @@ export default function Beginning(props) {
         attachment = await s3Upload(file.current);
       }
   
-      await saveBeginning({
-        hook,
-        backstory,
-        incitingIncident,
-        triggerEvent,
-        debate,
+      await saveFiller({
+        goal,
+        conflictField,
+        dilemma,
         decision,
-        threshold,
-        attachment: attachment || beginning.attachment
+        actionField,
+        attachment: attachment || filler.attachment
       });
       props.history.push("/");
     } catch (e) {
@@ -112,8 +104,8 @@ export default function Beginning(props) {
     }
   }
   
-  function deleteBeginning() {
-    return API.del("beginnings", `/beginnings/${props.match.params.id}`);
+  function deleteFiller() {
+    return API.del("fillers", `/fillers/${props.match.params.id}`);
   }
   
   async function handleDelete(event) {
@@ -130,7 +122,7 @@ export default function Beginning(props) {
     setIsDeleting(true);
   
     try {
-      await deleteBeginning();
+      await deleteFiller();
       props.history.push("/");
     } catch (e) {
       alert(e);
@@ -140,46 +132,31 @@ export default function Beginning(props) {
   
   return (
     <div className="Notes">
-      {beginning && (
+      {filler && (
         <form onSubmit={handleSubmit}>
-          <header>The Hook</header>
-        <FormGroup controlId="hook">
+          <h2>Your Transition Scene</h2>
+          <header>The Goal</header>
+        <FormGroup controlId="goal">
           <FormControl
-            value={hook}
+            value={goal}
             componentClass="textarea"
-            onChange={e => setHook(e.target.value)}
+            onChange={e => setGoal(e.target.value)}
           />
         </FormGroup>
-        <header>The Back Story</header>
-        <FormGroup controlId="backstory">
+        <header>The Conflict</header>
+        <FormGroup controlId="conflictField">
           <FormControl
-            value={backstory}
+            value={conflictField}
             componentClass="textarea"
-            onChange={e => setBackstory(e.target.value)}
+            onChange={e => setConflictField(e.target.value)}
           />
         </FormGroup>
-        <header>The Inciting Incident</header>
-        <FormGroup controlId="incitingIncident">
+        <header>The Dilemma</header>
+        <FormGroup controlId="dilemma">
           <FormControl
-            value={incitingIncident}
+            value={dilemma}
             componentClass="textarea"
-            onChange={e => setIncitingIncident(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Trigger</header>
-        <FormGroup controlId="triggerEvent">
-          <FormControl
-            value={triggerEvent}
-            componentClass="textarea"
-            onChange={e => setTriggerEvent(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Debate</header>
-        <FormGroup controlId="debate">
-          <FormControl
-            value={debate}
-            componentClass="textarea"
-            onChange={e => setDebate(e.target.value)}
+            onChange={e => setDilemma(e.target.value)}
           />
         </FormGroup>
         <header>The Decision</header>
@@ -190,30 +167,30 @@ export default function Beginning(props) {
             onChange={e => setDecision(e.target.value)}
           />
         </FormGroup>
-        <header>The Threshold</header>
-        <FormGroup controlId="threshold">
+        <header>The Action</header>
+        <FormGroup controlId="actionField">
           <FormControl
-            value={threshold}
+            value={actionField}
             componentClass="textarea"
-            onChange={e => setThreshold(e.target.value)}
+            onChange={e => setActionField(e.target.value)}
           />
         </FormGroup>
-          {beginning.attachment && (
+          {filler.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
               <FormControl.Static>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={beginning.attachmentURL}
+                  href={filler.attachmentURL}
                 >
-                  {formatFilename(beginning.attachment)}
+                  {formatFilename(filler.attachment)}
                 </a>
               </FormControl.Static>
             </FormGroup>
           )}
           <FormGroup controlId="file">
-            {!beginning.attachment && <ControlLabel>Attachment</ControlLabel>}
+            {!filler.attachment && <ControlLabel>Attachment</ControlLabel>}
             <FormControl onChange={handleFileChange} type="file" />
           </FormGroup>
           <LoaderButton

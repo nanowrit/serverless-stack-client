@@ -6,49 +6,46 @@ import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
 import "../../containers/Notes.css";
 
-export default function Beginning(props) {
+export default function Darkness(props) {
     const file = useRef(null);
-    const [beginning, setBeginning] = useState(null);
-    const [hook, setHook] = useState("");
-    const [backstory, setBackstory] = useState("");
-    const [incitingIncident, setIncitingIncident] = useState("");
-    const [triggerEvent, setTriggerEvent] = useState("");
-    const [debate, setDebate] = useState("");
-    const [decision, setDecision] = useState("");
-    const [threshold, setThreshold] = useState("");
+    const [darkness, setDarkness] = useState(null);
+    const [goal, setGoal] = useState("");
+    const [conflictField, setConflictField] = useState("");
+    const [ultimateDisaster, setUltimateDisaster] = useState("");
+    const [darkestMoment, setDarkestMoment] = useState("");
+    const [oneChance, setOneChance] = useState("");
+    const [doAndDie, setDoAndDie] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    function loadBeginning() {
-      return API.get("beginnings", `/beginnings/${props.match.params.id}`);
+    function loadDarkness() {
+      return API.get("darknesss", `/darknesss/${props.match.params.id}`);
     }
 
     async function onLoad() {
       try {
-        const beginning = await loadBeginning();
+        const darkness = await loadDarkness();
         const { 
-          hook, 
-          backstory, 
-          incitingIncident,
-          triggerEvent, 
-          debate,
-          decision,
-          threshold,
-          attachment } = beginning;
+          goal, 
+          conflictField, 
+          ultimateDisaster,
+          darkestMoment, 
+          oneChance,
+          doAndDie,
+          attachment } = darkness;
 
         if (attachment) {
-          beginning.attachmentURL = await Storage.vault.get(attachment);
+          darkness.attachmentURL = await Storage.vault.get(attachment);
         }
 
-        setHook(hook);
-        setBackstory(backstory);
-        setIncitingIncident(incitingIncident);
-        setTriggerEvent(triggerEvent);
-        setDebate(debate);
-        setDecision(decision);
-        setThreshold(threshold);
-        setBeginning(beginning);
+        setGoal(goal);
+        setConflictField(conflictField);
+        setUltimateDisaster(ultimateDisaster);
+        setDarkestMoment(darkestMoment);
+        setOneChance(oneChance);
+        setDoAndDie(doAndDie);
+        setDarkness(darkness);
       } catch (e) {
         alert(e);
       }
@@ -58,7 +55,7 @@ export default function Beginning(props) {
   }, [props.match.params.id]);
 
   function validateForm() {
-    return hook.length > 0 || backstory.length > 0 || incitingIncident.length > 0 || triggerEvent.length > 0 || debate.length > 0 || decision.length > 0 || threshold.length > 0;
+    return goal.length > 0 || conflictField.length > 0 || ultimateDisaster.length > 0 || darkestMoment.length > 0 || oneChance.length > 0 || doAndDie.length > 0;
   }
   
   function formatFilename(str) {
@@ -69,9 +66,9 @@ export default function Beginning(props) {
     file.current = event.target.files[0];
   }
   
-  function saveBeginning(beginning) {
-    return API.put("beginnings", `/beginnings/${props.match.params.id}`, {
-      body: beginning
+  function saveDarkness(darkness) {
+    return API.put("darknesss", `/darknesss/${props.match.params.id}`, {
+      body: darkness
     });
   }
   
@@ -95,15 +92,14 @@ export default function Beginning(props) {
         attachment = await s3Upload(file.current);
       }
   
-      await saveBeginning({
-        hook,
-        backstory,
-        incitingIncident,
-        triggerEvent,
-        debate,
-        decision,
-        threshold,
-        attachment: attachment || beginning.attachment
+      await saveDarkness({
+        goal,
+        conflictField,
+        ultimateDisaster,
+        darkestMoment,
+        oneChance,
+        doAndDie,
+        attachment: attachment || darkness.attachment
       });
       props.history.push("/");
     } catch (e) {
@@ -112,8 +108,8 @@ export default function Beginning(props) {
     }
   }
   
-  function deleteBeginning() {
-    return API.del("beginnings", `/beginnings/${props.match.params.id}`);
+  function deleteDarkness() {
+    return API.del("darknesss", `/darknesss/${props.match.params.id}`);
   }
   
   async function handleDelete(event) {
@@ -130,7 +126,7 @@ export default function Beginning(props) {
     setIsDeleting(true);
   
     try {
-      await deleteBeginning();
+      await deleteDarkness();
       props.history.push("/");
     } catch (e) {
       alert(e);
@@ -140,80 +136,72 @@ export default function Beginning(props) {
   
   return (
     <div className="Notes">
-      {beginning && (
+      {darkness && (
         <form onSubmit={handleSubmit}>
-          <header>The Hook</header>
-        <FormGroup controlId="hook">
+          <header>The Goal</header>
+        <FormGroup controlId="goal">
           <FormControl
-            value={hook}
+            value={goal}
             componentClass="textarea"
-            onChange={e => setHook(e.target.value)}
+            onChange={e => setGoal(e.target.value)}
           />
         </FormGroup>
-        <header>The Back Story</header>
-        <FormGroup controlId="backstory">
+        <header>The Conflict</header>
+        <FormGroup controlId="conflictField">
           <FormControl
-            value={backstory}
+            value={conflictField}
             componentClass="textarea"
-            onChange={e => setBackstory(e.target.value)}
+            onChange={e => setConflictField(e.target.value)}
           />
         </FormGroup>
-        <header>The Inciting Incident</header>
-        <FormGroup controlId="incitingIncident">
+        <header>The Ultimate Disaster</header>
+        <FormGroup controlId="ultimateDisaster">
           <FormControl
-            value={incitingIncident}
+            value={ultimateDisaster}
             componentClass="textarea"
-            onChange={e => setIncitingIncident(e.target.value)}
+            onChange={e => setUltimateDisaster(e.target.value)}
           />
         </FormGroup>
-        <header>The Trigger</header>
-        <FormGroup controlId="triggerEvent">
+        <header>The Darkest Moment</header>
+        <FormGroup controlId="darkestMoment">
           <FormControl
-            value={triggerEvent}
+            value={darkestMoment}
             componentClass="textarea"
-            onChange={e => setTriggerEvent(e.target.value)}
+            onChange={e => setDarkestMoment(e.target.value)}
           />
         </FormGroup>
-        <header>The Debate</header>
-        <FormGroup controlId="debate">
+        <header>One Chance</header>
+        <FormGroup controlId="oneChance">
           <FormControl
-            value={debate}
+            value={oneChance}
             componentClass="textarea"
-            onChange={e => setDebate(e.target.value)}
+            onChange={e => setOneChance(e.target.value)}
           />
         </FormGroup>
-        <header>The Decision</header>
-        <FormGroup controlId="decision">
+        <header>Do and Die</header>
+        <FormGroup controlId="doAndDie">
           <FormControl
-            value={decision}
+            value={doAndDie}
             componentClass="textarea"
-            onChange={e => setDecision(e.target.value)}
+            onChange={e => setDoAndDie(e.target.value)}
           />
         </FormGroup>
-        <header>The Threshold</header>
-        <FormGroup controlId="threshold">
-          <FormControl
-            value={threshold}
-            componentClass="textarea"
-            onChange={e => setThreshold(e.target.value)}
-          />
-        </FormGroup>
-          {beginning.attachment && (
+          {darkness.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
               <FormControl.Static>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={beginning.attachmentURL}
+                  href={darkness.attachmentURL}
                 >
-                  {formatFilename(beginning.attachment)}
+                  {formatFilename(darkness.attachment)}
                 </a>
               </FormControl.Static>
             </FormGroup>
           )}
           <FormGroup controlId="file">
-            {!beginning.attachment && <ControlLabel>Attachment</ControlLabel>}
+            {!darkness.attachment && <ControlLabel>Attachment</ControlLabel>}
             <FormControl onChange={handleFileChange} type="file" />
           </FormGroup>
           <LoaderButton

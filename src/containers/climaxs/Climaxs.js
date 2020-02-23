@@ -6,49 +6,49 @@ import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
 import "../../containers/Notes.css";
 
-export default function Beginning(props) {
+export default function Climax(props) {
     const file = useRef(null);
-    const [beginning, setBeginning] = useState(null);
-    const [hook, setHook] = useState("");
-    const [backstory, setBackstory] = useState("");
-    const [incitingIncident, setIncitingIncident] = useState("");
-    const [triggerEvent, setTriggerEvent] = useState("");
-    const [debate, setDebate] = useState("");
-    const [decision, setDecision] = useState("");
-    const [threshold, setThreshold] = useState("");
+    const [climax, setClimax] = useState(null);
+    const [struggle, setStruggle] = useState("");
+    const [doubt, setDoubt] = useState("");
+    const [unexpected, setUnexpected] = useState("");
+    const [climaxField, setClimaxField] = useState("");
+    const [poeticJustice, setPoeticJustice] = useState("");
+    const [poeticReward, setPoeticReward] = useState("");
+    const [wrapUp, setWrapUp] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    function loadBeginning() {
-      return API.get("beginnings", `/beginnings/${props.match.params.id}`);
+    function loadClimax() {
+      return API.get("climaxs", `/climaxs/${props.match.params.id}`);
     }
 
     async function onLoad() {
       try {
-        const beginning = await loadBeginning();
+        const climax = await loadClimax();
         const { 
-          hook, 
-          backstory, 
-          incitingIncident,
-          triggerEvent, 
-          debate,
-          decision,
-          threshold,
-          attachment } = beginning;
+          struggle, 
+          doubt, 
+          unexpected,
+          climaxField, 
+          poeticJustice,
+          poeticReward,
+          wrapUp,
+          attachment } = climax;
 
         if (attachment) {
-          beginning.attachmentURL = await Storage.vault.get(attachment);
+          climax.attachmentURL = await Storage.vault.get(attachment);
         }
 
-        setHook(hook);
-        setBackstory(backstory);
-        setIncitingIncident(incitingIncident);
-        setTriggerEvent(triggerEvent);
-        setDebate(debate);
-        setDecision(decision);
-        setThreshold(threshold);
-        setBeginning(beginning);
+        setStruggle(struggle);
+        setDoubt(doubt);
+        setUnexpected(unexpected);
+        setClimaxField(climaxField);
+        setPoeticJustice(poeticJustice);
+        setPoeticReward(poeticReward);
+        setWrapUp(wrapUp);
+        setClimax(climax);
       } catch (e) {
         alert(e);
       }
@@ -58,7 +58,7 @@ export default function Beginning(props) {
   }, [props.match.params.id]);
 
   function validateForm() {
-    return hook.length > 0 || backstory.length > 0 || incitingIncident.length > 0 || triggerEvent.length > 0 || debate.length > 0 || decision.length > 0 || threshold.length > 0;
+    return struggle.length > 0 || doubt.length > 0 || unexpected.length > 0 || climaxField.length > 0 || poeticJustice.length > 0 || poeticReward.length > 0 || wrapUp.length > 0;
   }
   
   function formatFilename(str) {
@@ -69,9 +69,9 @@ export default function Beginning(props) {
     file.current = event.target.files[0];
   }
   
-  function saveBeginning(beginning) {
-    return API.put("beginnings", `/beginnings/${props.match.params.id}`, {
-      body: beginning
+  function saveClimax(climax) {
+    return API.put("climaxs", `/climaxs/${props.match.params.id}`, {
+      body: climax
     });
   }
   
@@ -95,15 +95,15 @@ export default function Beginning(props) {
         attachment = await s3Upload(file.current);
       }
   
-      await saveBeginning({
-        hook,
-        backstory,
-        incitingIncident,
-        triggerEvent,
-        debate,
-        decision,
-        threshold,
-        attachment: attachment || beginning.attachment
+      await saveClimax({
+        struggle,
+        doubt,
+        unexpected,
+        climaxField,
+        poeticJustice,
+        poeticReward,
+        wrapUp,
+        attachment: attachment || climax.attachment
       });
       props.history.push("/");
     } catch (e) {
@@ -112,8 +112,8 @@ export default function Beginning(props) {
     }
   }
   
-  function deleteBeginning() {
-    return API.del("beginnings", `/beginnings/${props.match.params.id}`);
+  function deleteClimax() {
+    return API.del("climaxs", `/climaxs/${props.match.params.id}`);
   }
   
   async function handleDelete(event) {
@@ -130,7 +130,7 @@ export default function Beginning(props) {
     setIsDeleting(true);
   
     try {
-      await deleteBeginning();
+      await deleteClimax();
       props.history.push("/");
     } catch (e) {
       alert(e);
@@ -140,80 +140,81 @@ export default function Beginning(props) {
   
   return (
     <div className="Notes">
-      {beginning && (
+      {climax && (
         <form onSubmit={handleSubmit}>
-          <header>The Hook</header>
-        <FormGroup controlId="hook">
+          <h2>Your Climax Scene</h2>
+          <header>The Struggle</header>
+        <FormGroup controlId="struggle">
           <FormControl
-            value={hook}
+            value={struggle}
             componentClass="textarea"
-            onChange={e => setHook(e.target.value)}
+            onChange={e => setStruggle(e.target.value)}
           />
         </FormGroup>
-        <header>The Back Story</header>
-        <FormGroup controlId="backstory">
+        <header>The Doubt</header>
+        <FormGroup controlId="doubt">
           <FormControl
-            value={backstory}
+            value={doubt}
             componentClass="textarea"
-            onChange={e => setBackstory(e.target.value)}
+            onChange={e => setDoubt(e.target.value)}
           />
         </FormGroup>
-        <header>The Inciting Incident</header>
-        <FormGroup controlId="incitingIncident">
+        <header>The Unexpected</header>
+        <FormGroup controlId="unexpected">
           <FormControl
-            value={incitingIncident}
+            value={unexpected}
             componentClass="textarea"
-            onChange={e => setIncitingIncident(e.target.value)}
+            onChange={e => setUnexpected(e.target.value)}
           />
         </FormGroup>
-        <header>The Trigger</header>
-        <FormGroup controlId="triggerEvent">
+        <header>The Climax</header>
+        <FormGroup controlId="climaxField">
           <FormControl
-            value={triggerEvent}
+            value={climaxField}
             componentClass="textarea"
-            onChange={e => setTriggerEvent(e.target.value)}
+            onChange={e => setClimaxField(e.target.value)}
           />
         </FormGroup>
-        <header>The Debate</header>
-        <FormGroup controlId="debate">
+        <header>Poetic Justice</header>
+        <FormGroup controlId="poeticJustice">
           <FormControl
-            value={debate}
+            value={poeticJustice}
             componentClass="textarea"
-            onChange={e => setDebate(e.target.value)}
+            onChange={e => setPoeticJustice(e.target.value)}
           />
         </FormGroup>
-        <header>The Decision</header>
-        <FormGroup controlId="decision">
+        <header>Poetic Reward</header>
+        <FormGroup controlId="poeticReward">
           <FormControl
-            value={decision}
+            value={poeticReward}
             componentClass="textarea"
-            onChange={e => setDecision(e.target.value)}
+            onChange={e => setPoeticReward(e.target.value)}
           />
         </FormGroup>
-        <header>The Threshold</header>
-        <FormGroup controlId="threshold">
+        <header>Wrapping it Up</header>
+        <FormGroup controlId="wrapUp">
           <FormControl
-            value={threshold}
+            value={wrapUp}
             componentClass="textarea"
-            onChange={e => setThreshold(e.target.value)}
+            onChange={e => setWrapUp(e.target.value)}
           />
         </FormGroup>
-          {beginning.attachment && (
+          {climax.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
               <FormControl.Static>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={beginning.attachmentURL}
+                  href={climax.attachmentURL}
                 >
-                  {formatFilename(beginning.attachment)}
+                  {formatFilename(climax.attachment)}
                 </a>
               </FormControl.Static>
             </FormGroup>
           )}
           <FormGroup controlId="file">
-            {!beginning.attachment && <ControlLabel>Attachment</ControlLabel>}
+            {!climax.attachment && <ControlLabel>Attachment</ControlLabel>}
             <FormControl onChange={handleFileChange} type="file" />
           </FormGroup>
           <LoaderButton
