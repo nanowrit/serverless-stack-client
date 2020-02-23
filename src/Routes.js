@@ -3,8 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
-import Notes from "./containers/Notes";
-import NewNote from "./containers/NewNote";
+import Beginnings from "./containers/beginnings/Beginnings";
+import NewBeginning from "./containers/beginnings/NewBeginning";
 import Settings from "./containers/Settings";
 import ChangeEmail from "./containers/ChangeEmail";
 import ResetPassword from "./containers/ResetPassword";
@@ -25,8 +25,8 @@ export default function Routes({ appProps }) {
       <AuthenticatedRoute path="/settings/email" exact component={ChangeEmail} appProps={appProps} />
       <UnauthenticatedRoute path="/login/reset" exact component={ResetPassword} appProps={appProps} />
       <AuthenticatedRoute path="/settings/password" exact component={ChangePassword} appProps={appProps} />
-      <AuthenticatedRoute path="/notes/new" exact component={NewNote} appProps={appProps} />
-      <AuthenticatedRoute path="/notes/:id" exact component={Notes} appProps={appProps} />
+      <AuthenticatedRoute path="/beginnings/new" exact component={NewBeginning} appProps={appProps} />
+      <AuthenticatedRoute path="/beginnings/:id" exact component={Beginnings} appProps={appProps} />
       { /* Finally, catch all unmatched routes */ }
       <Route component={NotFound} />
     </Switch>

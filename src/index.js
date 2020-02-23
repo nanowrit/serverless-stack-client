@@ -23,10 +23,35 @@ Amplify.configure({
   API: {
     endpoints: [
       {
-        name: "notes",
+        name: "beginnings",
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION
       },
+      {
+        name: "mirrors",
+        endpoint: config.apiGateway.URL,
+        region: config.apiGateway.REGION      
+      },
+      {
+        name: "darknesss",
+        endpoint: config.apiGateway.URL,
+        region: config.apiGateway.REGION
+      },
+      {
+        name: "fillers",
+        endpoint: config.apiGateway.URL,
+        region: config.apiGateway.REGION
+      },
+      {
+        name: "recommitments",
+        endpoint: config.apiGateway.URL,
+        region: config.apiGateway.REGION
+      },
+      {
+        name: "climaxs",
+        endpoint: config.apiGateway.URL,
+        region: config.apiGateway.REGION
+      }
     ]
   }
 });
