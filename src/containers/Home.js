@@ -277,29 +277,29 @@ export default function Home(props) {
     return (
       <div className="notes">
         <PageHeader>Your Scenes</PageHeader>
-        <h2>In the Beginning...</h2>
+        <h2>The Beginning Scene</h2>
         <ListGroup>
           {!isLoading && renderBeginningsList(beginnings)}
         </ListGroup>
-        <h2>A look in the mirror...</h2>
+        <h2>The Mirror Scene</h2>
         <ListGroup>
         {!isLoading && renderMirrorsList(mirrors)}
         </ListGroup>
-        <h2>And now for something a little darker...</h2>
-        <ListGroup>
-        {!isLoading && renderDarknessList(darknesss)}
-        </ListGroup>
-        <h2>A transition</h2>
-        <ListGroup>
-        {!isLoading && renderFillerList(fillers)}
-        </ListGroup>
-        <h2>Re-commitment</h2>
+        <h2>The Re-Commitment Scene</h2>
         <ListGroup>
         {!isLoading && renderRecommitmentList(recommitments)}
         </ListGroup>
-        <h2>The Climax</h2>
+        <h2>The Darkness Scene</h2>
+        <ListGroup>
+        {!isLoading && renderDarknessList(darknesss)}
+        </ListGroup>
+        <h2>The Climax Scene</h2>
         <ListGroup>
         {!isLoading && renderClimaxList(climaxs)}
+        </ListGroup>
+        <h2>The Filler Scene</h2>
+        <ListGroup>
+        {!isLoading && renderFillerList(fillers)}
         </ListGroup>
       </div>
     );
