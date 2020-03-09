@@ -211,7 +211,7 @@ export default function Home(props) {
             {filler.actionField}
           </ListGroupItem>
         </LinkContainer>
-      ) : !fillers ? (
+      ) : (
         <LinkContainer key="new" to="/fillers/new">
           <ListGroupItem>
             <h4>
@@ -219,7 +219,7 @@ export default function Home(props) {
             </h4>
           </ListGroupItem>
         </LinkContainer>
-      ) : null
+      )
     );
   }
 
