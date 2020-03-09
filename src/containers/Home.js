@@ -82,7 +82,21 @@ export default function Home(props) {
     return API.get("climaxs", "/climaxs");
   }
 
+  function renderAddNewButton(array) {
+    console.log("Array. :" + JSON.stringify(array))
+    return (
+      <LinkContainer key="new" to="/array/new">
+      <ListGroupItem>
+        <h4>
+          <b>{"\uFF0B"}</b> Create a new beginning scene
+        </h4>
+      </ListGroupItem>
+    </LinkContainer>
+    )
+  }
+
   function renderBeginningsList(beginnings) {
+    console.log("Beginnings: " + JSON.stringify(beginnings) )
     return [{}].concat(beginnings).map((beginning, i) =>
       i !== 0 ? (
         <LinkContainer key={beginning.beginningId} to={`/beginnings/${beginning.beginningId}`}>
@@ -104,21 +118,19 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <LinkContainer key="new" to="/beginnings/new">
-          <ListGroupItem>
-            <h4>
-              <b>{"\uFF0B"}</b> Create a new beginning scene
-            </h4>
-          </ListGroupItem>
-        </LinkContainer>
+        <div>
+          { renderAddNewButton(beginnings) }
+        </div>
       )
     );
   }
 
   function renderMirrorsList(mirrors) {
+    console.log("Mirrors: " + JSON.stringify(mirrors) )
     return [{}].concat(mirrors).map((mirror, i) =>
       i !== 0 ? (
         <LinkContainer key={mirror.mirrorId} to={`/mirrors/${mirror.mirrorId}`}>
+          { console.log("Mirror: " + i) }
           <ListGroupItem>
             <h3>The Goal</h3>
             {mirror.goal}
@@ -135,6 +147,9 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
+        // <div>
+        //   { renderAddNewButton(mirrors) }
+        // </div>
         <LinkContainer key="new" to="/mirrors/new">
           <ListGroupItem>
             <h4>
@@ -196,7 +211,7 @@ export default function Home(props) {
             {filler.actionField}
           </ListGroupItem>
         </LinkContainer>
-      ) : (
+      ) : !fillers ? (
         <LinkContainer key="new" to="/fillers/new">
           <ListGroupItem>
             <h4>
@@ -204,7 +219,7 @@ export default function Home(props) {
             </h4>
           </ListGroupItem>
         </LinkContainer>
-      )
+      ) : null
     );
   }
 

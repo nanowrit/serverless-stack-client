@@ -101,7 +101,7 @@ export default function NewFiller(props) {
             onChange={e => setDilemma(e.target.value)}
           />
         </FormGroup>
-        <header>One Decision</header>
+        <header>The Decision</header>
         <FormGroup controlId="decision">
           <FormControl
             value={decision}
