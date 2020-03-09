@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
+import { PageHeader, ListGroup, ListGroupItem, ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
@@ -13,31 +13,47 @@ export default function Home(props) {
   const [recommitments, setRecommitments] = useState([{}]);
   const [climaxs, setClimaxs] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
+  let [progress, setProgress] = useState(0);
+
   useEffect(() => {
     async function onLoad() {
       if (!props.isAuthenticated) {
         return;
       }
+
+      setProgress(0);
   
       try {
         const beginnings = await loadBeginnings();
         setBeginnings(beginnings);
+        setProgress(16.67);
         const mirrors = await loadMirrors();
         setMirrors(mirrors);
+        setProgress(33.33);
         const darknesss = await loadDarknesss();
         setDarknesss(darknesss);
+        setProgress(50);
         const fillers = await loadFillers();
         setFillers(fillers);
+        setProgress(66.67);
         const recommitments = await loadRecommitments();
         setRecommitments(recommitments);
+        setProgress(83.35)
         const climaxs = await loadClimaxs();
         setClimaxs(climaxs);
+        setProgress(99);
       } catch (e) {
         alert(e);
       }
   
+      setProgress(99);
+      setTimeout(() => {
+        setProgress(100);
+      }, 1000);
       setIsLoading(false);
     }
+
+    
   
     onLoad();
   }, [props.isAuthenticated]);
@@ -273,6 +289,15 @@ export default function Home(props) {
     );
   }
 
+  function renderProgressBar() {
+    return (
+      <div>
+        <h1>Loading your Scenes...</h1>
+        <ProgressBar active now={progress} />
+      </div>
+    )
+  }
+
   function renderScenes() {
     return (
       <div className="notes">
@@ -307,7 +332,8 @@ export default function Home(props) {
 
   return (
     <div className="Home">
-      {props.isAuthenticated ? renderScenes() : renderLander()}
+      {props.isAuthenticated ?  progress > 99 ? renderScenes() : renderProgressBar()
+      : renderLander()}
     </div>
   );
 }
