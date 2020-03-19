@@ -96,7 +96,6 @@ export default function Home(props) {
   // }
 
   function renderBeginningsList(beginnings) {
-    console.log("Beginnings: " + JSON.stringify(beginnings) )
     return [{}].concat(beginnings).map((beginning, i) =>
       i !== 0 ? (
         <LinkContainer key={beginning.beginningId} to={`/beginnings/${beginning.beginningId}`}>
@@ -130,11 +129,9 @@ export default function Home(props) {
   }
 
   function renderMirrorsList(mirrors) {
-    console.log("Mirrors: " + JSON.stringify(mirrors) )
     return [{}].concat(mirrors).map((mirror, i) =>
       i !== 0 ? (
         <LinkContainer key={mirror.mirrorId} to={`/mirrors/${mirror.mirrorId}`}>
-          { console.log("Mirror: " + i) }
           <ListGroupItem>
             <h3>The Goal</h3>
             {mirror.goal}
