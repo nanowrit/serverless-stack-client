@@ -134,7 +134,7 @@ export default function Filler(props) {
     <div className="Notes">
       {filler && (
         <form onSubmit={handleSubmit}>
-          <h2>Your Transition Scene</h2>
+          <h2>The Filler Scene</h2>
           <header>The Goal</header>
         <FormGroup controlId="goal">
           <FormControl

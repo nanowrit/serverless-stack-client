@@ -120,7 +120,7 @@ export default function Home(props) {
         <LinkContainer key="new" to="/beginnings/new">
           <ListGroupItem>
             <h4>
-              <b>{"\uFF0B"}</b> Create a new mirror scene
+              <b>{"\uFF0B"}</b> Create a new beginning scene
             </h4>
           </ListGroupItem>
         </LinkContainer>
@@ -308,7 +308,7 @@ export default function Home(props) {
   function renderProgressBar() {
     return (
       <div>
-        <h1>Loading your Scenes...</h1>
+        <h1>Loading the Scenes...</h1>
         <ProgressBar active now={progress} />
       </div>
     )

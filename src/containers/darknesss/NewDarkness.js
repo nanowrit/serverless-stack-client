@@ -68,6 +68,7 @@ export default function NewDarkness(props) {
   return (
     <div className="NewNote">
       <form onSubmit={handleSubmit}>
+        <h2>The Darkness Scene</h2>
         <header>The Goal</header>
         <FormGroup controlId="goal">
           <FormControl

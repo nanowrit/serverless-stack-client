@@ -67,7 +67,7 @@ export default function NewFiller(props) {
 
   return (
     <div className="NewNote">
-      <h2>Your Transition Scene</h2>
+      <h2>The Filler Scene</h2>
       <form onSubmit={handleSubmit}>
         <header>The Goal</header>
         <FormGroup controlId="goal">

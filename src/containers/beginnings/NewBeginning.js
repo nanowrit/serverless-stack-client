@@ -70,6 +70,7 @@ export default function NewBeginning(props) {
   return (
     <div className="NewNote">
       <form onSubmit={handleSubmit}>
+        <h2>The Beginning Scene</h2>
         <header>The Hook</header>
         <FormGroup controlId="hook">
           <FormControl

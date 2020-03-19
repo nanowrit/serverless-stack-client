@@ -142,6 +142,7 @@ export default function Beginning(props) {
     <div className="Notes">
       {beginning && (
         <form onSubmit={handleSubmit}>
+          <h2>The Beginning Scene</h2>
           <header>The Hook</header>
         <FormGroup controlId="hook">
           <FormControl

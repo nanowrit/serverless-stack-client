@@ -138,6 +138,7 @@ export default function Darkness(props) {
     <div className="Notes">
       {darkness && (
         <form onSubmit={handleSubmit}>
+          <h2>The Darkness Scene</h2>
           <header>The Goal</header>
         <FormGroup controlId="goal">
           <FormControl
