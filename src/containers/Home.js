@@ -82,18 +82,18 @@ export default function Home(props) {
     return API.get("climaxs", "/climaxs");
   }
 
-  function renderAddNewButton(array) {
-    console.log("Array. :" + JSON.stringify(array))
-    return (
-      <LinkContainer key="new" to="/array/new">
-      <ListGroupItem>
-        <h4>
-          <b>{"\uFF0B"}</b> Create a new beginning scene
-        </h4>
-      </ListGroupItem>
-    </LinkContainer>
-    )
-  }
+  // function renderAddNewButton(array) {
+  //   console.log("Array. :" + JSON.stringify(array))
+  //   return (
+  //     <LinkContainer key="new" to="/array/new">
+  //     <ListGroupItem>
+  //       <h4>
+  //         <b>{"\uFF0B"}</b> Create a new beginning scene
+  //       </h4>
+  //     </ListGroupItem>
+  //   </LinkContainer>
+  //   )
+  // }
 
   function renderBeginningsList(beginnings) {
     console.log("Beginnings: " + JSON.stringify(beginnings) )
@@ -118,9 +118,13 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <div>
-          { renderAddNewButton(beginnings) }
-        </div>
+        <LinkContainer key="new" to="/beginnings/new">
+          <ListGroupItem>
+            <h4>
+              <b>{"\uFF0B"}</b> Create a new mirror scene
+            </h4>
+          </ListGroupItem>
+        </LinkContainer>
       )
     );
   }
