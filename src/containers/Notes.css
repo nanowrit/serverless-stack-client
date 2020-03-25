@@ -1,8 +1,23 @@
 .Notes form {
-    padding-bottom: 15px;
+  font-family: 'Crimson Text', serif;
+  font-size: larger;
+  font-weight: bold;
+  color: #525C52;
+  padding-bottom: 15px;
+  }
+
+  .Notes form header {
+    font-variant: small-caps;
   }
   
   .Notes form textarea {
     height: 300px;
     font-size: 24px;
+    background: repeating-linear-gradient(
+      0,
+      #423E37,
+      #E1FCDF 1px,
+      #E1FCDF 13%,
+      #E1FCDF 10%
+    );
   }

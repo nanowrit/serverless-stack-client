@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
 import "./Home.css";
 
-export default function Home(props) {
+export default function Home(props) { 
   const [mirrors, setMirrors] = useState([{}]);
   const [beginnings, setBeginnings] = useState([{}]);
   const [darknesss, setDarknesss] = useState([{}]);
@@ -99,7 +99,7 @@ export default function Home(props) {
     return [{}].concat(beginnings).map((beginning, i) =>
       i !== 0 ? (
         <LinkContainer key={beginning.beginningId} to={`/beginnings/${beginning.beginningId}`}>
-          <ListGroupItem>
+          <ListGroupItem className="listGroupItem">
             <h3>The Hook</h3>
             {beginning.hook}
             <h3>The Backstory</h3>
@@ -132,7 +132,7 @@ export default function Home(props) {
     return [{}].concat(mirrors).map((mirror, i) =>
       i !== 0 ? (
         <LinkContainer key={mirror.mirrorId} to={`/mirrors/${mirror.mirrorId}`}>
-          <ListGroupItem>
+          <ListGroupItem className="listGroupItem">
             <h3>The Goal</h3>
             {mirror.goal}
             <h3>The Conflict</h3>
@@ -166,7 +166,7 @@ export default function Home(props) {
     return [{}].concat(darknesss).map((darkness, i) =>
       i !== 0 ? (
         <LinkContainer key={darkness.darknessId} to={`/darknesss/${darkness.darknessId}`}>
-          <ListGroupItem>
+          <ListGroupItem className="listGroupItem">
             <h3>The Goal</h3>
             {darkness.goal}
             <h3>The Conflict</h3>
@@ -197,7 +197,7 @@ export default function Home(props) {
     return [{}].concat(fillers).map((filler, i) =>
       i !== 0 ? (
         <LinkContainer key={filler.fillerId} to={`/fillers/${filler.fillerId}`}>
-          <ListGroupItem>
+          <ListGroupItem className="listGroupItem">
             <h3>The Goal</h3>
             {filler.goal}
             <h3>The Conflict</h3>
@@ -228,7 +228,7 @@ export default function Home(props) {
     return [{}].concat(recommitments).map((recommitment, i) =>
       i !== 0 ? (
         <LinkContainer key={recommitment.recommitmentId} to={`/recommitments/${recommitment.recommitmentId}`}>
-          <ListGroupItem>
+          <ListGroupItem className="listGroupItem">
             <h3>The Goal</h3>
             {recommitment.goal}
             <h3>The Conflict</h3>
@@ -259,7 +259,7 @@ export default function Home(props) {
     return [{}].concat(climaxs).map((climax, i) =>
       i !== 0 ? (
         <LinkContainer key={climax.climaxId} to={`/climaxs/${climax.climaxId}`}>
-          <ListGroupItem>
+          <ListGroupItem className="listGroupItem">
             <h3>The struggle</h3>
             {climax.struggle}
             <h3>The Doubt</h3>
@@ -307,7 +307,7 @@ export default function Home(props) {
 
   function renderProgressBar() {
     return (
-      <div>
+      <div className="notes">
         <h1>Loading the Scenes...</h1>
         <ProgressBar active now={progress} />
       </div>

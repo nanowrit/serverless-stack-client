@@ -16,6 +16,10 @@ const dev = {
   },
   social: {
     FB: "186051152494365"
+  },
+  instructions: {
+    instructionsUsersname: "SBInstructionsAdmin@nanowritlabs.com",
+    instructionUsersPassword: "kanriv-nodfIc-6fujjo" 
   }
 };
 

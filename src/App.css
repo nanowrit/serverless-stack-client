@@ -3,5 +3,7 @@
 }
 
 .App .navbar-brand {
+  font-family: 'Trade Winds', cursive;
+  font-size: xx-large;
   font-weight: bold;
 }

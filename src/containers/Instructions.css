@@ -1,0 +1,27 @@
+.Instructions {
+    background-color: #F1F5ED;
+    padding: 10px 30px 10px;
+    text-align: center;
+  }
+
+  .Instructions h1 {
+    font-family: 'Trade Winds', cursive;
+    padding-bottom: 50px;
+  }
+
+  .Instructions h2, h3, h4 {
+    font-family: 'Acme', sans-serif;
+      text-align: left;
+  }
+
+  .Instructions blockquote {
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      text-align: justify;
+  }
+
+  .Instructions p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: larger;
+    text-align: justify;
+  }
