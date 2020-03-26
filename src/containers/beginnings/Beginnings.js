@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel, Tabs, Tab } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
@@ -65,9 +65,9 @@ export default function Beginning(props) {
     return str.replace(/^\w+-/, "");
   }
   
-  function handleFileChange(event) {
-    file.current = event.target.files[0];
-  }
+  // function handleFileChange(event) {
+  //   file.current = event.target.files[0];
+  // }
   
   function saveBeginning(beginning) {
     return API.put("beginnings", `/beginnings/${props.match.params.id}`, {
@@ -143,62 +143,78 @@ export default function Beginning(props) {
       {beginning && (
         <form onSubmit={handleSubmit}>
           <h2>The Beginning Scene</h2>
-          <header>The Hook</header>
-        <FormGroup controlId="hook">
-          <FormControl
-            value={hook}
-            componentClass="textarea"
-            onChange={e => setHook(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Back Story</header>
-        <FormGroup controlId="backstory">
-          <FormControl
-            value={backstory}
-            componentClass="textarea"
-            onChange={e => setBackstory(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Inciting Incident</header>
-        <FormGroup controlId="incitingIncident">
-          <FormControl
-            value={incitingIncident}
-            componentClass="textarea"
-            onChange={e => setIncitingIncident(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Trigger</header>
-        <FormGroup controlId="triggerEvent">
-          <FormControl
-            value={triggerEvent}
-            componentClass="textarea"
-            onChange={e => setTriggerEvent(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Debate</header>
-        <FormGroup controlId="debate">
-          <FormControl
-            value={debate}
-            componentClass="textarea"
-            onChange={e => setDebate(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Decision</header>
-        <FormGroup controlId="decision">
-          <FormControl
-            value={decision}
-            componentClass="textarea"
-            onChange={e => setDecision(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Threshold</header>
-        <FormGroup controlId="threshold">
-          <FormControl
-            value={threshold}
-            componentClass="textarea"
-            onChange={e => setThreshold(e.target.value)}
-          />
-        </FormGroup>
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab">
+            <Tab eventKey={1} title="1. The Hook">
+              <header>The Hook</header>
+              <FormGroup controlId="hook">
+                <FormControl
+                  value={hook}
+                  componentClass="textarea"
+                  onChange={e => setHook(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={2} title="2. The Back Story">
+              <header>The Back Story</header>
+              <FormGroup controlId="backstory">
+                <FormControl
+                  value={backstory}
+                  componentClass="textarea"
+                  onChange={e => setBackstory(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={3} title="3. The Inciting Incident">
+              <header>The Inciting Incident</header>
+              <FormGroup controlId="incitingIncident">
+                <FormControl
+                  value={incitingIncident}
+                  componentClass="textarea"
+                  onChange={e => setIncitingIncident(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={4} title="4. The Trigger">
+              <header>The Trigger</header>
+              <FormGroup controlId="triggerEvent">
+                <FormControl
+                  value={triggerEvent}
+                  componentClass="textarea"
+                  onChange={e => setTriggerEvent(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={5} title="5. The Debate">
+              <header>The Debate</header>
+              <FormGroup controlId="debate">
+                <FormControl
+                  value={debate}
+                  componentClass="textarea"
+                  onChange={e => setDebate(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={6} title="6. The Decision">
+              <header>The Decision</header>
+              <FormGroup controlId="decision">
+                <FormControl
+                  value={decision}
+                  componentClass="textarea"
+                  onChange={e => setDecision(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={7} title="7. The Threshold">
+              <header>The Threshold</header>
+              <FormGroup controlId="threshold">
+                <FormControl
+                  value={threshold}
+                  componentClass="textarea"
+                  onChange={e => setThreshold(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+          </Tabs>
           {beginning.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
@@ -213,10 +229,10 @@ export default function Beginning(props) {
               </FormControl.Static>
             </FormGroup>
           )}
-          <FormGroup controlId="file">
+          {/* <FormGroup controlId="file">
             {!beginning.attachment && <ControlLabel>Attachment</ControlLabel>}
             <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup>
+          </FormGroup> */}
           <LoaderButton
             block
             type="submit"

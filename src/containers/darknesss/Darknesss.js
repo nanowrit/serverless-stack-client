@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
@@ -58,13 +58,13 @@ export default function Darkness(props) {
     return goal.length > 0 || conflictField.length > 0 || ultimateDisaster.length > 0 || darkestMoment.length > 0 || oneChance.length > 0 || doAndDie.length > 0;
   }
   
-  function formatFilename(str) {
-    return str.replace(/^\w+-/, "");
-  }
+  // function formatFilename(str) {
+  //   return str.replace(/^\w+-/, "");
+  // }
   
-  function handleFileChange(event) {
-    file.current = event.target.files[0];
-  }
+  // function handleFileChange(event) {
+  //   file.current = event.target.files[0];
+  // }
   
   function saveDarkness(darkness) {
     return API.put("darknesss", `/darknesss/${props.match.params.id}`, {
@@ -139,55 +139,69 @@ export default function Darkness(props) {
       {darkness && (
         <form onSubmit={handleSubmit}>
           <h2>The Darkness Scene</h2>
-          <header>The Goal</header>
-        <FormGroup controlId="goal">
-          <FormControl
-            value={goal}
-            componentClass="textarea"
-            onChange={e => setGoal(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Conflict</header>
-        <FormGroup controlId="conflictField">
-          <FormControl
-            value={conflictField}
-            componentClass="textarea"
-            onChange={e => setConflictField(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Ultimate Disaster</header>
-        <FormGroup controlId="ultimateDisaster">
-          <FormControl
-            value={ultimateDisaster}
-            componentClass="textarea"
-            onChange={e => setUltimateDisaster(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Darkest Moment</header>
-        <FormGroup controlId="darkestMoment">
-          <FormControl
-            value={darkestMoment}
-            componentClass="textarea"
-            onChange={e => setDarkestMoment(e.target.value)}
-          />
-        </FormGroup>
-        <header>One Chance</header>
-        <FormGroup controlId="oneChance">
-          <FormControl
-            value={oneChance}
-            componentClass="textarea"
-            onChange={e => setOneChance(e.target.value)}
-          />
-        </FormGroup>
-        <header>Do and Die</header>
-        <FormGroup controlId="doAndDie">
-          <FormControl
-            value={doAndDie}
-            componentClass="textarea"
-            onChange={e => setDoAndDie(e.target.value)}
-          />
-        </FormGroup>
-          {darkness.attachment && (
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab">
+            <Tab eventKey={1} title="1. The Goal">
+              <header>The Goal</header>
+              <FormGroup controlId="goal">
+                <FormControl
+                  value={goal}
+                  componentClass="textarea"
+                  onChange={e => setGoal(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={2} title="2. The Conflict">
+              <header>The Conflict</header>
+              <FormGroup controlId="conflictField">
+                <FormControl
+                  value={conflictField}
+                  componentClass="textarea"
+                  onChange={e => setConflictField(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={3} title="3. The Ultimate Disaster">
+              <header>The Ultimate Disaster</header>
+              <FormGroup controlId="ultimateDisaster">
+                <FormControl
+                  value={ultimateDisaster}
+                  componentClass="textarea"
+                  onChange={e => setUltimateDisaster(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={4} title="4. The Darkest Moment">
+              <header>The Darkest Moment</header>
+              <FormGroup controlId="darkestMoment">
+                <FormControl
+                  value={darkestMoment}
+                  componentClass="textarea"
+                  onChange={e => setDarkestMoment(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={5} title="5. One Chance">
+              <header>One Chance</header>
+              <FormGroup controlId="oneChance">
+                <FormControl
+                  value={oneChance}
+                  componentClass="textarea"
+                  onChange={e => setOneChance(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={6} title="6. Do and Die">
+              <header>Do and Die</header>
+              <FormGroup controlId="doAndDie">
+                <FormControl
+                  value={doAndDie}
+                  componentClass="textarea"
+                  onChange={e => setDoAndDie(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+          </Tabs>
+          {/* {darkness.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
               <FormControl.Static>
@@ -204,7 +218,7 @@ export default function Darkness(props) {
           <FormGroup controlId="file">
             {!darkness.attachment && <ControlLabel>Attachment</ControlLabel>}
             <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup>
+          </FormGroup> */}
           <LoaderButton
             block
             type="submit"

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
@@ -55,13 +55,13 @@ export default function Filler(props) {
     return goal.length > 0 || conflictField.length > 0 || dilemma.length > 0 || decision.length > 0|| actionField.length > 0;
   }
   
-  function formatFilename(str) {
-    return str.replace(/^\w+-/, "");
-  }
+  // function formatFilename(str) {
+  //   return str.replace(/^\w+-/, "");
+  // }
   
-  function handleFileChange(event) {
-    file.current = event.target.files[0];
-  }
+  // function handleFileChange(event) {
+  //   file.current = event.target.files[0];
+  // }
   
   function saveFiller(filler) {
     return API.put("fillers", `/fillers/${props.match.params.id}`, {
@@ -135,47 +135,59 @@ export default function Filler(props) {
       {filler && (
         <form onSubmit={handleSubmit}>
           <h2>The Filler Scene</h2>
-          <header>The Goal</header>
-        <FormGroup controlId="goal">
-          <FormControl
-            value={goal}
-            componentClass="textarea"
-            onChange={e => setGoal(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Conflict</header>
-        <FormGroup controlId="conflictField">
-          <FormControl
-            value={conflictField}
-            componentClass="textarea"
-            onChange={e => setConflictField(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Dilemma</header>
-        <FormGroup controlId="dilemma">
-          <FormControl
-            value={dilemma}
-            componentClass="textarea"
-            onChange={e => setDilemma(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Decision</header>
-        <FormGroup controlId="decision">
-          <FormControl
-            value={decision}
-            componentClass="textarea"
-            onChange={e => setDecision(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Action</header>
-        <FormGroup controlId="actionField">
-          <FormControl
-            value={actionField}
-            componentClass="textarea"
-            onChange={e => setActionField(e.target.value)}
-          />
-        </FormGroup>
-          {filler.attachment && (
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab">
+            <Tab eventKey={1} title="1. The Goal">
+              <header>The Goal</header>
+              <FormGroup controlId="goal">
+                <FormControl
+                  value={goal}
+                  componentClass="textarea"
+                  onChange={e => setGoal(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={2} title="2. The Conflict">
+              <header>The Conflict</header>
+              <FormGroup controlId="conflictField">
+                <FormControl
+                  value={conflictField}
+                  componentClass="textarea"
+                  onChange={e => setConflictField(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={3} title="3. The Dilemma">
+              <header>The Dilemma</header>
+              <FormGroup controlId="dilemma">
+                <FormControl
+                  value={dilemma}
+                  componentClass="textarea"
+                  onChange={e => setDilemma(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={4} title="4. The Decision">
+              <header>The Decision</header>
+              <FormGroup controlId="decision">
+                <FormControl
+                  value={decision}
+                  componentClass="textarea"
+                  onChange={e => setDecision(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={5} title="5. The Action">
+              <header>The Action</header>
+              <FormGroup controlId="actionField">
+                <FormControl
+                  value={actionField}
+                  componentClass="textarea"
+                  onChange={e => setActionField(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+          </Tabs>
+          {/* {filler.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
               <FormControl.Static>
@@ -192,7 +204,7 @@ export default function Filler(props) {
           <FormGroup controlId="file">
             {!filler.attachment && <ControlLabel>Attachment</ControlLabel>}
             <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup>
+          </FormGroup> */}
           <LoaderButton
             block
             type="submit"

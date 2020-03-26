@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
 import { API } from "aws-amplify";
 import { s3Upload } from "../../libs/awsLib";
 import LoaderButton from "../../components/LoaderButton";
@@ -21,9 +21,9 @@ export default function NewClimax(props) {
     return struggle.length > 0;
   }
 
-  function handleFileChange(event) {
-    file.current = event.target.files[0];
-  }
+  // function handleFileChange(event) {
+  //   file.current = event.target.files[0];
+  // }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -71,66 +71,82 @@ export default function NewClimax(props) {
     <div className="NewNote">
       <form onSubmit={handleSubmit}>
         <h2>The Climax Scene</h2>
-        <header>The Struggle</header>
-        <FormGroup controlId="struggle">
-          <FormControl
-            value={struggle}
-            componentClass="textarea"
-            onChange={e => setStruggle(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Doubt</header>
-        <FormGroup controlId="doubt">
-          <FormControl
-            value={doubt}
-            componentClass="textarea"
-            onChange={e => setDoubt(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Unexpected</header>
-        <FormGroup controlId="unexpected">
-          <FormControl
-            value={unexpected}
-            componentClass="textarea"
-            onChange={e => setUnexpected(e.target.value)}
-          />
-        </FormGroup>
-        <header>The Climax</header>
-        <FormGroup controlId="climax">
-          <FormControl
-            value={climax}
-            componentClass="textarea"
-            onChange={e => setClimax(e.target.value)}
-          />
-        </FormGroup>
-        <header>Poetic Justice</header>
-        <FormGroup controlId="poeticJustice">
-          <FormControl
-            value={poeticJustice}
-            componentClass="textarea"
-            onChange={e => setPoeticJustice(e.target.value)}
-          />
-        </FormGroup>
-        <header>Poetic Reward</header>
-        <FormGroup controlId="poeticReward">
-          <FormControl
-            value={poeticReward}
-            componentClass="textarea"
-            onChange={e => setPoeticReward(e.target.value)}
-          />
-        </FormGroup>
-        <header>Wrapping it Up</header>
-        <FormGroup controlId="wrapUp">
-          <FormControl
-            value={wrapUp}
-            componentClass="textarea"
-            onChange={e => setWrapUp(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="file">
+        <Tabs defaultActiveKey={1} id="uncontrolled-tab">
+          <Tab eventKey={1} title="1. The Struggle">
+            <header>The Struggle</header>
+            <FormGroup controlId="struggle">
+              <FormControl
+                value={struggle}
+                componentClass="textarea"
+                onChange={e => setStruggle(e.target.value)}
+              />
+            </FormGroup>
+          </Tab>
+          <Tab eventKey={2} title="2. The Doubt">
+            <header>The Doubt</header>
+            <FormGroup controlId="doubt">
+              <FormControl
+                value={doubt}
+                componentClass="textarea"
+                onChange={e => setDoubt(e.target.value)}
+              />
+            </FormGroup>
+          </Tab>
+          <Tab eventKey={3} title="3. The Unexpected">
+            <header>The Unexpected</header>
+            <FormGroup controlId="unexpected">
+              <FormControl
+                value={unexpected}
+                componentClass="textarea"
+                onChange={e => setUnexpected(e.target.value)}
+              />
+            </FormGroup>
+          </Tab>
+          <Tab eventKey={4} title="4. The Climax">
+            <header>The Climax</header>
+            <FormGroup controlId="climax">
+              <FormControl
+                value={climax}
+                componentClass="textarea"
+                onChange={e => setClimax(e.target.value)}
+              />
+            </FormGroup>
+          </Tab>
+          <Tab eventKey={5} title="5. Poetic Justice">
+            <header>Poetic Justice</header>
+            <FormGroup controlId="poeticJustice">
+              <FormControl
+                value={poeticJustice}
+                componentClass="textarea"
+                onChange={e => setPoeticJustice(e.target.value)}
+              />
+            </FormGroup>
+          </Tab>
+          <Tab eventKey={6} title="6. Poetic Reward">
+            <header>Poetic Reward</header>
+            <FormGroup controlId="poeticReward">
+              <FormControl
+                value={poeticReward}
+                componentClass="textarea"
+                onChange={e => setPoeticReward(e.target.value)}
+              />
+            </FormGroup>
+          </Tab>
+          <Tab eventKey={7} title="7. Wrapping it Up">
+            <header>Wrapping it Up</header>
+            <FormGroup controlId="wrapUp">
+              <FormControl
+                value={wrapUp}
+                componentClass="textarea"
+                onChange={e => setWrapUp(e.target.value)}
+              />
+            </FormGroup>
+          </Tab>
+        </Tabs>
+        {/* <FormGroup controlId="file">
           <ControlLabel>Attachment</ControlLabel>
           <FormControl onChange={handleFileChange} type="file" />
-        </FormGroup>
+        </FormGroup> */}
         <LoaderButton
           block
           type="submit"

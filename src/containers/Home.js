@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PageHeader, ListGroup, ListGroupItem, ProgressBar } from "react-bootstrap";
+import { PageHeader, ListGroup, ListGroupItem, ProgressBar, Tabs, Tab } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
@@ -216,7 +216,7 @@ export default function Home(props) {
         <LinkContainer key="new" to="/fillers/new">
           <ListGroupItem>
             <h4>
-              <b>{"\uFF0B"}</b> Create a new transition scene
+              <b>{"\uFF0B"}</b> Create a new filler scene
             </h4>
           </ListGroupItem>
         </LinkContainer>
@@ -318,30 +318,44 @@ export default function Home(props) {
     return (
       <div className="notes">
         <PageHeader>Your Scenes</PageHeader>
-        <h2>The Beginning Scene</h2>
-        <ListGroup>
-          {!isLoading && renderBeginningsList(beginnings)}
-        </ListGroup>
-        <h2>The Mirror Scene</h2>
-        <ListGroup>
-        {!isLoading && renderMirrorsList(mirrors)}
-        </ListGroup>
-        <h2>The Re-Commitment Scene</h2>
-        <ListGroup>
-        {!isLoading && renderRecommitmentList(recommitments)}
-        </ListGroup>
-        <h2>The Darkness Scene</h2>
-        <ListGroup>
-        {!isLoading && renderDarknessList(darknesss)}
-        </ListGroup>
-        <h2>The Climax Scene</h2>
-        <ListGroup>
-        {!isLoading && renderClimaxList(climaxs)}
-        </ListGroup>
-        <h2>The Filler Scene</h2>
-        <ListGroup>
-        {!isLoading && renderFillerList(fillers)}
-        </ListGroup>
+        <Tabs defaultActiveKey={1} id="uncontrolled-tab">
+          <Tab eventKey={1} title="1. The Beginning Scene">
+            <h2>The Beginning Scene</h2>
+            <ListGroup>
+              {!isLoading && renderBeginningsList(beginnings)}
+            </ListGroup>
+          </Tab>
+          <Tab eventKey={2} title="2. The Mirror Scene">
+            <h2>The Mirror Scene</h2>
+              <ListGroup>
+                {!isLoading && renderMirrorsList(mirrors)}
+              </ListGroup>
+          </Tab>
+          <Tab eventKey={3} title="3. The Re-Commitment Scene">
+            <h2>The Re-Commitment Scene</h2>
+              <ListGroup>
+                {!isLoading && renderRecommitmentList(recommitments)}
+              </ListGroup>
+          </Tab>
+          <Tab eventKey={4} title="4. The Darkness Scene">
+            <h2>The Darkness Scene</h2>
+              <ListGroup>
+              {!isLoading && renderDarknessList(darknesss)}
+              </ListGroup>
+          </Tab>
+          <Tab eventKey={5} title="5. The Climax Scene">
+            <h2>The Climax Scene</h2>
+              <ListGroup>
+              {!isLoading && renderClimaxList(climaxs)}
+              </ListGroup>
+          </Tab>
+          <Tab eventKey={6} title="6. The Filler Scene">
+            <h2>The Filler Scene</h2>
+              <ListGroup>
+              {!isLoading && renderFillerList(fillers)}
+              </ListGroup>
+          </Tab>
+        </Tabs>
       </div>
     );
   }
