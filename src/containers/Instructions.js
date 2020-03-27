@@ -64,6 +64,21 @@ export default function Instructions(props) {
                             </Tab>
                             <Tab eventKey={2} title="The Backstory">
                                 <h4>Backstory</h4>
+                                <p> The Hook forces readers into a narrow focus designed to capture their attention. In the Backstory we widen the focus and at the same time we give them other elements that give readers a new shiny thing to pull them in tighter. The Backstory serves to introduce all the important characters, to further readers understanding of the protagonist’s situation, and to reveal the basic conflict as well as to suggest a solution to the conflict. The Backstory thickens the story because after the Hook readers want more to hold their attention.
+                                </p>
+
+                                <p>Like seasoning, Backstory is best served a little at a time. Too much chili pepper turns a delicious meal into second degree burns. And nobody likes that. So don’t dump too much Backstory on your reader at once. Which begs the question, how do you do that? 
+                                </p>
+
+                                <p>
+                                One of the best ways is through dialogue. But let’s step back a bit, because Backstory’s most important dramatic purpose is to give the story a sensation of movement. So you just can’t have two characters standing there talking to each other, delivering huge chunks of Backstory to the reader. 
+                                </p> 
+                                <p>
+                                Begin with action, then dialogue with Backstory (which will include bits of characterization, slivers of situation exposition, and at least hint at conflict), then go back to action and repeat. This device has one more advantage, it creates tension.  When done properly, the characters move towards a goal, then somewhere in the dialogue introduce a bit of Backstory that causes hesitation, doubt, or even retreat, and you’ve woven tension into the fabric of the story beginning on page one.
+                                </p> 
+                                <p>
+                                How long do you linger in the Backstory? Just as long as it takes to justify the next element: Inciting Incident. As long as it takes and no more because Backstory is not the most important element of the story but it must deliver its dramatic purpose:  to confirm that their interest in the story is justified, that even more interesting stuff is to follow and they are in for a fun ride. 
+                                </p>
                             </Tab>
                             <Tab eventKey={3} title="Inciting Incident">
                                 <h4>Inciting Incident</h4>
