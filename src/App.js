@@ -6,6 +6,7 @@ import "./App.css";
 import Routes from "./Routes";
 import { Auth } from "aws-amplify";
 import config from "./config";
+import Footer from "./components/Footer";
 
 function App(props) {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
@@ -57,9 +58,17 @@ function App(props) {
     props.history.push("/login");
   }
 
+  // function renderFooter() {
+  //   return (
+  //     <div className="footer">
+  //       <p>nanowritlabs &copy; 2020</p>
+  //     </div>
+  //   )
+  // }
+
   return (
     !isAuthenticating && (
-      <div className="App container">
+      <div className="App container" id="AppContainer">
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
@@ -93,6 +102,7 @@ function App(props) {
           </Navbar.Collapse>
         </Navbar>
         <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
+        <Footer />
       </div>
     )
   );

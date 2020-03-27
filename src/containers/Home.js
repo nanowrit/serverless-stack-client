@@ -319,7 +319,7 @@ export default function Home(props) {
       <div className="notes">
         <PageHeader>Your Scenes</PageHeader>
         <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-          <Tab eventKey={1} title="1. The Beginning Scene">
+          <Tab eventKey={1} className="tigerPoo" title="1. The Beginning Scene">
             <h2>The Beginning Scene</h2>
             <ListGroup>
               {!isLoading && renderBeginningsList(beginnings)}

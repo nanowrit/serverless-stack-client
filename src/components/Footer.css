@@ -1,0 +1,16 @@
+.Footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    /* padding-top: 100vh; */
+    min-height: 75px;
+    width: 100vw;
+    text-align: center;
+    color: antiquewhite;
+    background-color: #423E37;
+  }
+.Footer p {
+    padding: 25px;
+}
