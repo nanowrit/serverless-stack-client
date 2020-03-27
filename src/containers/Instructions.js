@@ -1,17 +1,29 @@
 import React from "react";
+import { Tabs, Tab } from "react-bootstrap";
 import "./Instructions.css";
 
-export default function Instructions() {
+export default function Instructions(props) {
   return (
     <div className="Instructions">
       <article>
         <header>
-            {/* <h1>Instructions for SceneBuilder Workflow</h1> */}
-            <img src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/experienceWithEvilWithChanges.jpg" alt="Your mom." />
-                <h2>Introduction</h2>
-                <h2>The Scenes</h2>
-                    <h3>Beginning Scene</h3>
-                        <h4>The Hook</h4>
+            <Tabs defaultActiveKey={1} id="instructions-tabs">
+                <Tab eventKey={1} title="front">
+                <img src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/experienceWithEvilWithChanges.jpg" alt="Your mom." />
+                </Tab>
+                <Tab eventKey={2} title="Introduction">
+                    <h2>Introduction</h2>
+                </Tab>
+                <Tab eventKey={3} title="The Scenes">
+                    <Tabs defaultActiveKey={1} id="instructions-scenes-tab">
+                        {/* <Tab eventKey={1} title="What are the Scenes?">
+                        <h2>The Scenes</h2>
+                        </Tab> */}
+                        <Tab eventKey={1} title="The Beginning Scene">
+                            <h3>Beginning Scene</h3>
+                            <Tabs defaultActiveKey={1} id="beginning-scene-instructions-tab">
+                            <Tab eventKey={1} title="The Hook">
+                            <h4>The Hook</h4>
                             <p>The hook grabs the reader’s attention. If you can achieve that in the first sentence then it is time for you to go, Grasshopper. Your reader is as skittish as a trout that’s taken the hook (sorry, I couldn’t help it) too many times. If you don’t get them in the first sentence, or at least the first paragraph they will hide in a dark pool under an overhanging rock and….well, you get the idea.</p>
 
                             <p>Luckily there are several techniques proven through the years that will fill your net. Let’s explore them.</p>
@@ -49,77 +61,126 @@ export default function Instructions() {
                             <p>That is how you do it people! This opening infuses the setting with a sense of life and movement. It requires verbs that imply sentience into mundane phenomena and everyday objects. It is most powerful inGothic tales of horror and occult but has been used in every form of popular fiction. </p>
 
                             <p>Remember to think of your readers as elusive quarry that demands a well designed opening to draw them into the body of the story. These opening devices have stood the test of time. The genre, the protagonist and the stories premise all serve to inform you as to which opening is most effective. </p>
+                            </Tab>
+                            <Tab eventKey={2} title="The Backstory">
+                                <h4>Backstory</h4>
+                            </Tab>
+                            <Tab eventKey={3} title="Inciting Incident">
+                                <h4>Inciting Incident</h4>
+                            </Tab>
+                            <Tab eventKey={4} title="Trigger">
+                                <h4>Trigger</h4>
+                            </Tab>
+                            <Tab eventKey={5} title="The Debate">
+                                <h4>Debate</h4>
+                            </Tab>
+                            <Tab eventKey={6} title="The Decision">
+                                <h4>Decision</h4>
+                            </Tab>
+                            <Tab eventKey={7} title="Crossing the Threshold">
+                                <h4>Crossing the Threshold</h4>
+                            </Tab>
+                        </Tabs>
+                        </Tab>
+                        <Tab eventKey={2} title="The Mirror Scene">
+                            <h3>The Mirror Scene</h3>
+                            <Tabs defaultActiveKey={1} id="mirror-scene-instructions-tab">
+                                <Tab eventKey={1} title="The Goal">
+                                    <h4>Goal</h4>
+                                </Tab>
+                                <Tab eventKey={2} title="The Conflicy">
+                                    <h4>Conflict</h4>
+                                </Tab>
+                                <Tab eventKey={3} title="The Disaster">
+                                    <h4>Disaster</h4>
+                                </Tab>
+                                <Tab eventKey={4} title="The Mirror Moment">
+                                    <h4>Mirror Moment</h4>
+                                </Tab>
+                                <Tab eventKey={5} title="One More Time">
+                                    <h4>One More Time</h4>
+                                </Tab>
+                                <Tab eventKey={6} title="Action">
+                                    <h4>Action</h4>
+                                </Tab>
+                            </Tabs>
+                        </Tab>
+                        <Tab eventKey={3} title="The Re-Commitment Scene">
+                            <h3>The Re-Commitment Scene</h3>
+                            <Tabs defaultActiveKey={1} id="recommitment-scene-instructions-tab">
+                                <Tab eventKey={1} title="The Goal">
+                                    <h4>Goal</h4>
+                                </Tab>
+                                <Tab eventKey={2} title="The Conflict">
+                                    <h4>Conflict</h4>
+                                </Tab>
+                                <Tab eventKey={3} title="The Revelation">
+                                    <h4>Revelation</h4>
+                                </Tab>
+                                <Tab eventKey={4} title="Praising the Enemy">
+                                    <h4>Praising the Enemy</h4>
+                                </Tab>
+                                <Tab eventKey={5} title="Do or Die">
+                                    <h4>Do or Die</h4>
+                                </Tab>
+                                <Tab eventKey={6} title="Crossing the Threshold II">
+                                    <h4>Crossing the Threshold II</h4>
+                                </Tab>
+                            </Tabs>
+                        </Tab>
+                        <Tab eventKey={4} title="The Darkness Scene">
+                            <h3>The Darkness Scene</h3>
+                            <Tabs defaultActiveKey={1} id="darkness-scene-instructions-tab">
+                                <Tab eventKey={1} title="The Goal">
+                                    <h4>Goal</h4>
+                                </Tab>
+                                <Tab eventKey={2} title="The Conflict">
+                                    <h4>Conflict</h4>
+                                </Tab>
+                                <Tab eventKey={3} title="Ultimate Disaster">
+                                    <h4>Ultimate Disaster</h4>
+                                </Tab>
+                                <Tab eventKey={4} title="Darkest Moment">
+                                    <h4>Darkest Moment</h4>
+                                </Tab>
+                                <Tab eventKey={5} title="One Chance">
+                                    <h4>One Chance</h4>
+                                </Tab>
+                                <Tab eventKey={6} title=" Do and Die">
+                                    <h4>Do and Die</h4>
+                                </Tab>
+                            </Tabs>
 
-                        <h4>Backstory</h4>
-
-                        <h4>Inciting Incident</h4>
-
-                        <h4>Trigger</h4>
-
-                        <h4>Debate</h4>
-
-                        <h4>Decision</h4>
-
-                        <h4>Crossing the Threshold</h4>
-
-                    <h3>The Mirror Scene</h3>
-
-                        <h4>Goal</h4>
-
-                        <h4>Conflict</h4>
-
-                        <h4>Disaster</h4>
-
-                        <h4>Mirror Moment</h4>
-
-                        <h4>One More Time</h4>
-
-                        <h4>Action</h4>
-
-                    <h3>The Re-Commitment Scene</h3>
-
-                        <h4>Goal</h4>
-
-                        <h4>Conflict</h4>
-
-                        <h4>Revelation</h4>
-
-                        <h4>Praising the Enemy</h4>
-
-                        <h4>Do or Die</h4>
-
-                        <h4>Crossing the Threshold II</h4>
-
-                    <h3>The Darkness Scene</h3>
-
-                        <h4>Goal</h4>
-
-                        <h4>Conflict</h4>
-
-                        <h4>Ultimate Disaster</h4>
-
-                        <h4>Darkest Moment</h4>
-
-                        <h4>One Chance</h4>
-
-                        <h4>Do and Die</h4>
-
-                    <h3>The Climax Scene</h3>
-
-                        <h4>Struggle</h4>
-
-                        <h4>Doubt</h4>
-
-                        <h4>The Unexpected</h4>
-
-                        <h4>Poetic Justice</h4>
-
-                        <h4>Poetic Reward</h4>
-
-                        <h4>Wrapping it Up</h4>
-
-                <h2>Conclusion</h2>
-
+                        </Tab>
+                        <Tab eventKey={5} title="The Climax Scene">
+                            <h3>The Climax Scene</h3>
+                            <Tabs defaultActiveKey={1} id="climax-scene-instructions-tab">
+                                <Tab eventKey={1} title="The Struggle">
+                                    <h4>Struggle</h4>
+                                </Tab>
+                                <Tab eventKey={2} title="The Doubt">
+                                    <h4>Doubt</h4>
+                                </Tab>
+                                <Tab eventKey={3} title="The Unexpected">
+                                    <h4>The Unexpected</h4>
+                                </Tab>
+                                <Tab eventKey={4} title="Poetic Justice">
+                                    <h4>Poetic Justice</h4>
+                                </Tab>
+                                <Tab eventKey={5} title="Poetic Reward">
+                                    <h4>Poetic Reward</h4>
+                                </Tab>
+                                <Tab eventKey={6} title="Wrapping it Up">
+                                    <h4>Wrapping it Up</h4>
+                                </Tab>
+                            </Tabs>
+                        </Tab>
+                    </Tabs>
+                </Tab>
+                <Tab eventKey={7} title="Conclusion">
+                    <h2>Conclusion</h2>
+                </Tab>
+            </Tabs>
         </header>
 
       </article>
