@@ -15,7 +15,7 @@ const dev = {
     IDENTITY_POOL_ID: "us-west-2:0b3e359e-a56d-47e5-afdf-bd35f67f068f"
   },
   social: {
-    FB: "186051152494365"
+    FB: "891073078019739"
   },
   instructions: {
     instructionsUsersname: "SBInstructionsAdmin@nanowritlabs.com",
@@ -40,7 +40,7 @@ const prod = {
     IDENTITY_POOL_ID: "us-west-2:0b3e359e-a56d-47e5-afdf-bd35f67f068f"
   },
   social: {
-    FB: "186051152494365"
+    FB: "891073078019739"
   }
 };
 
