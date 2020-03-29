@@ -1,42 +1,42 @@
-import React, { useState } from "react";
-import { API } from "aws-amplify";
-import { Elements, StripeProvider } from "react-stripe-elements";
+import React from "react";
+// import { API } from "aws-amplify";
+// import { Elements, StripeProvider } from "react-stripe-elements";
 import { LinkContainer } from "react-router-bootstrap";
 import LoaderButton from "../components/LoaderButton";
-import BillingForm from "../components/BillingForm";
-import config from "../config";
+// import BillingForm from "../components/BillingForm";
+// import config from "../config";
 import "./Settings.css";
 
 export default function Settings(props) {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  function billUser(details) {
-    return API.post("notes", "/billing", {
-      body: details
-    });
-  }
+  // function billUser(details) {
+  //   return API.post("notes", "/billing", {
+  //     body: details
+  //   });
+  // }
 
-  async function handleFormSubmit(storage, { token, error }) {
-    if (error) {
-      alert(error);
-      return;
-    }
+  // async function handleFormSubmit(storage, { token, error }) {
+  //   if (error) {
+  //     alert(error);
+  //     return;
+  //   }
   
-    setIsLoading(true);
+  //   // setIsLoading(true);
   
-    try {
-      await billUser({
-        storage,
-        source: token.id
-      });
+  //   try {
+  //     await billUser({
+  //       storage,
+  //       source: token.id
+  //     });
   
-      alert("Your card has been charged successfully!");
-      props.history.push("/");
-    } catch (e) {
-      alert(e);
-      setIsLoading(false);
-    }
-  }
+  //     alert("Your card has been charged successfully!");
+  //     props.history.push("/");
+  //   } catch (e) {
+  //     alert(e);
+  //     // setIsLoading(false);
+  //   }
+  // }
   
   return (
     <div className="Settings">
@@ -56,14 +56,14 @@ export default function Settings(props) {
             Change Password
           </LoaderButton>
         </LinkContainer>
-      <StripeProvider apiKey={config.STRIPE_KEY}>
+      {/* <StripeProvider apiKey={config.STRIPE_KEY}>
         <Elements>
           <BillingForm
             isLoading={isLoading}
             onSubmit={handleFormSubmit}
           />
         </Elements>
-      </StripeProvider>
+      </StripeProvider> */}
     </div>
   );
 }
