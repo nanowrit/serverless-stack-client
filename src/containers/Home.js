@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { PageHeader, ListGroup, ListGroupItem, ProgressBar, Tabs, Tab } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
-import Lander from "../containers/Lander";
 import "./Home.css";
 
 export default function Home(props) { 
@@ -288,6 +288,23 @@ export default function Home(props) {
     );
   }
 
+  function renderLander() {
+    return (
+      <div className="lander">
+        <h1>SceneBuilder</h1>
+        <p>A simple scene creating workflow</p>
+        <div>
+          <Link to="/login" className="btn btn-info btn-lg">
+            Login
+          </Link>
+          <Link to="/signup" className="btn btn-success btn-lg">
+            Signup
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   function renderProgressBar() {
     return (
       <div className="notes">
@@ -346,7 +363,7 @@ export default function Home(props) {
   return (
     <div className="Home">
       {props.isAuthenticated ?  progress > 99 ? renderScenes() : renderProgressBar()
-      : Lander()}
+      : renderLander()}
     </div>
   );
 }

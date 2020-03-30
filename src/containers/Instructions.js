@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, Image } from "react-bootstrap";
+import { Tabs, Tab } from "react-bootstrap";
 import "./Instructions.css";
 
 export default function Instructions(props) {
@@ -9,7 +9,7 @@ export default function Instructions(props) {
         <header>
             <Tabs defaultActiveKey={1} id="instructions-tabs">
                 <Tab eventKey={1} title="front">
-                <Image className="cover" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/experienceWithEvilWithChanges.jpg" alt="Experience Speaks!" responsive />
+                <img src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/experienceWithEvilWithChanges.jpg" alt="Your mom." />
                 </Tab>
                 <Tab eventKey={2} title="Introduction">
                     <h2>Introduction</h2>
