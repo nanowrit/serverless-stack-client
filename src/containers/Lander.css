@@ -1,0 +1,69 @@
+.Lander {
+    margin: 0;
+    width: 100vw;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .Lander h1 {
+    font-family: 'Acme', sans-serif;
+    font-weight: 600;
+  }
+  
+  .Lander p {
+    color: #999;
+  }
+
+  .Lander div {
+    padding-top: 20px;
+  }
+  .Lander div a:first-child {
+    margin-right: 20px;
+  }
+
+  .Lander .aboveFold {
+      margin-left: 25px;
+      display: flex;
+      width: 100%;
+      height: 35vh;
+      align-items: flex-start;
+      justify-content: space-between;
+  }
+  .Lander .headerAboveFold {
+      font-size: 50px;
+  }
+  .Lander .aboveFold .copyAboveFold {
+      flex: 2 1 auto;
+  }
+  .Lander .artAboveFold {
+      flex: 0 1 auto;
+      align-self: auto;
+      filter: drop-shadow(10px 10px 10px #222);
+  }
+  .Lander .tagAboveFold {
+      padding-top: 5vh;
+  }
+
+  .Lander .belowFold {
+      height: 100vh;
+      background-color: rgb(13, 19, 7);
+      display: flex;
+      justify-content: space-between;
+      /* align-items: flex-end; */
+  }
+  .Lander .artBelowFold {
+    flex: 0 1 auto;
+    align-self: flex-end;
+    filter: drop-shadow(10px 10px 10px #222);
+  }
+  .Lander .copyBelowFold {
+    text-align: right;
+    margin: auto;
+    padding-right: 5vw;
+}
+  .Lander .headerBelowFold {
+      flex: 1 1 auto;
+    align-self: flex-start;
+    color: #FFF268;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  }

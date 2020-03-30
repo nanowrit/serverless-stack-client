@@ -72,7 +72,7 @@ function App(props) {
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">SceneBuilder</Link>
+              <Link to="/">Nanowritlabs</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
