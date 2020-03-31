@@ -9,7 +9,7 @@ export default function Stories(props) {
             <Tabs defaultActiveKey={1} id="stories-tabs">
                 <Tab eventKey={1} title="Robert E. Howard">
                     <ListGroup>
-                        <ListGroupItem href="/the-tower-of-the-elephant">
+                        <ListGroupItem href="/stories/the-tower-of-the-elephant">
                             <h2>The Tower of the Elephant</h2>
                         </ListGroupItem>
                     </ListGroup>

@@ -35,6 +35,10 @@
     min-width: 50vw;
 }
 
+.Lander .library-list a {
+    text-decoration: none;
+}
+
 .Lander h2 {
     color: aliceblue;
 }

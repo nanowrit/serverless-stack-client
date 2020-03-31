@@ -1,6 +1,7 @@
 import React from "react";
 import "./Lander.css";
 import { Tabs, Tab, Image, Grid, Row, Col, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Lander(props) {
     return (
@@ -24,15 +25,21 @@ export default function Lander(props) {
                             <Col xsPull={6} mdPush={3} lgPush={3}>
                             <h1>The Library</h1>
                             <ListGroup className="library-list">
-                                <ListGroupItem href="/stories">
-                                <h2>Classic Pulp Fiction Stories</h2>
-                                </ListGroupItem>
-                                <ListGroupItem href="/">
-                                    <h2>Material on the Craft</h2>
-                                </ListGroupItem>
-                                <ListGroupItem href="/">
-                                    <h2>Classic Pulp Fiction Art</h2>
-                                </ListGroupItem>
+                                <Link to="/stories">
+                                    <ListGroupItem>
+                                        <h2>Classic Pulp Fiction Stories</h2>
+                                    </ListGroupItem>
+                                </Link>
+                                <Link to="/">
+                                    <ListGroupItem href="/">
+                                        <h2>Material on the Craft</h2>
+                                    </ListGroupItem>
+                                </Link>
+                                <Link to="/">
+                                    <ListGroupItem href="/">
+                                        <h2>Classic Pulp Fiction Art</h2>
+                                    </ListGroupItem>
+                                </Link>
                             </ListGroup>
                             </Col>
                         </Row>
