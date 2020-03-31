@@ -1,6 +1,7 @@
 import React from "react";
 import "./Lander.css";
 import { Tabs, Tab, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Stories(props) {
     return (
@@ -9,9 +10,11 @@ export default function Stories(props) {
             <Tabs defaultActiveKey={1} id="stories-tabs">
                 <Tab eventKey={1} title="Robert E. Howard">
                     <ListGroup>
-                        <ListGroupItem href="/stories/the-tower-of-the-elephant">
-                            <h2>The Tower of the Elephant</h2>
-                        </ListGroupItem>
+                        <Link to="/stories/the-tower-of-the-elephant">
+                            <ListGroupItem href="">
+                                <h2>The Tower of the Elephant</h2>
+                            </ListGroupItem>
+                        </Link>
                     </ListGroup>
                 </Tab>
             </Tabs>
