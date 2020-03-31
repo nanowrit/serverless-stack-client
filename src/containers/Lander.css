@@ -1,0 +1,87 @@
+.Lander {
+    /* padding: 80px 0; */
+    min-height: 100vh;
+    text-align: center;
+}  
+.Lander h1 {
+    font-family: 'Acme', sans-serif;
+    font-weight: 600;
+} 
+.Lander p {
+    color: #999;
+}
+.Lander div {
+    padding-top: 20px;
+}
+.Lander div a:first-child {
+    margin: auto;
+    /* margin-right: 20px; */
+}
+.Lander .lander-tabs {
+    /* height: 100vh; */
+    box-shadow: 5px 5px 5px gray;
+}
+.Lander .research-tab {
+    background-color: rgb(13, 19, 7);
+    min-height: 100vh;
+}
+.Lander .research-tab .art {
+    z-index: 0;
+    vertical-align: bottom;
+    box-sizing: content-box;
+}
+.Lander .research-tab .library-list {
+    float: right;
+    min-width: 50vw;
+}
+
+.Lander h2 {
+    color: aliceblue;
+}
+.Lander .welcome-tab p {
+    margin: auto;
+    padding-top: 25px;
+    max-width: 50vw;
+}
+.Lander .research-tab h1 {
+    color: #FFF268;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+.Lander .buttons {
+    position: relative;
+    float: right;
+    margin: auto;
+}
+.Lander .lander-tabs {
+    padding-top: 0px;
+    min-height: 100vh;
+}
+
+.list-group-item {
+    border: none;
+    background-color: none;
+    background-image: linear-gradient(to right, rgba(13, 19, 7 ,1), rgba(66, 62, 55, 1));
+    z-index: 1;
+}
+.list-group-item:hover {
+    box-shadow: 15px -25px 35px aliceblue;
+    transition: all .5s ease-in-out;
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+#stories-tabs .tab-content {
+    background-color: rgb(13, 19, 7);
+    min-height: 100vh;
+}
+#stories-tabs .list-group-item {
+    background-color: rgb(13, 19, 7);
+    background-image: none;
+}
+
+.Elephant p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: larger;
+    text-align: justify;
+    color: rgb(13, 19, 7);
+}
