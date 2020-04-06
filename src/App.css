@@ -25,8 +25,21 @@
   font-weight: bold;
 }
 
+.radioactive {
+  color: #FFF268;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
 .center {
+  margin: auto;
   text-align: center;
+}
+.align-middle {
+  margin-top: 30vh;
+}
+
+.pale-silver {
+  color: #C4BBBA;
 }
 
 .Aladin {
@@ -35,4 +48,8 @@
 
 .Gotu {
   font-family: 'Gotu', sans-serif;
+}
+
+.Black-Ops {
+  font-family: 'Black Ops One', cursive;
 }
