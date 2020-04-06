@@ -1,8 +1,23 @@
+.Home .notes {
+  padding-bottom: 25px;
+}
+
+.Home .page-header {
+  border-bottom: none;
+}
+
+.Home .nav-tabs {
+  border-bottom: none;
+}
+
 .Home .notes h1, h2 {
+  color: #C4BBBA;
   font-family: 'Acme', sans-serif;
 }
+
 .Home .notes h4 {
-  font-family: 'Crimson Text', serif;
+  /* font-family: 'Crimson Text', serif; */
+  color: #C4BBBA;
   font-size: x-large;
   font-weight: 600;
   overflow: hidden;
@@ -14,6 +29,8 @@
   color: #666;
 }
 .Home .notes .listGroupItem {
+  padding-top: 25px;
+  line-height: 45px;
   background: repeating-linear-gradient(
     0,
     #423E37,
@@ -21,4 +38,20 @@
     #E1FCDF 45px,
     #E1FCDF 45px
   );
+}
+
+.Home .notes .active a {
+  color: #423E37;
+}
+
+.Home .notes li a {
+  color: #C4BBBA;
+}
+
+.Home .notes li a:hover {
+  color: #423E37;
+}
+
+.Home .notes .active {
+  color: #423E37;
 }

@@ -20,20 +20,8 @@ export default function NewDarkness(props) {
     return goal.length > 0;
   }
 
-  // function handleFileChange(event) {
-  //   file.current = event.target.files[0];
-  // }
-
   async function handleSubmit(event) {
     event.preventDefault();
-  
-    // if (file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
-    //   alert(
-    //     `Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE /
-    //       1000000} MB.`
-    //   );
-    //   return;
-    // }
   
     setIsLoading(true);
   
@@ -71,7 +59,6 @@ export default function NewDarkness(props) {
         <h2>The Darkness Scene</h2>
         <Tabs defaultActiveKey={1} id="uncontrolled-tab">
           <Tab eventKey={1} title="1. The Goal">
-            <header>The Goal</header>
             <FormGroup controlId="goal">
               <FormControl
                 value={goal}
@@ -81,7 +68,6 @@ export default function NewDarkness(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={2} title="2. The Conflict">
-            <header>The Conflict</header>
             <FormGroup controlId="conflictField">
               <FormControl
                 value={conflictField}
@@ -91,7 +77,6 @@ export default function NewDarkness(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={3} title="3. The Ultimate Disaster">
-            <header>The Ultimate Disaster</header>
             <FormGroup controlId="ultimateDisaster">
               <FormControl
                 value={ultimateDisaster}
@@ -101,7 +86,6 @@ export default function NewDarkness(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={4} title="4. The Darkest Moment">
-            <header>The Darkest Moment</header>
             <FormGroup controlId="darkestMoment">
               <FormControl
                 value={darkestMoment}
@@ -111,7 +95,6 @@ export default function NewDarkness(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={5} title="5. The One Chance">
-            <header>The One Chance</header>
             <FormGroup controlId="oneChance">
               <FormControl
                 value={oneChance}
@@ -121,7 +104,6 @@ export default function NewDarkness(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={6} title="6. Do and Die">
-            <header>Do And Die</header>
             <FormGroup controlId="doAndDie">
               <FormControl
                 value={doAndDie}
@@ -131,10 +113,6 @@ export default function NewDarkness(props) {
             </FormGroup>
           </Tab>
         </Tabs>
-        {/* <FormGroup controlId="file">
-          <ControlLabel>Attachment</ControlLabel>
-          <FormControl onChange={handleFileChange} type="file" />
-        </FormGroup> */}
         <LoaderButton
           block
           type="submit"

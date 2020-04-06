@@ -55,14 +55,6 @@ export default function Filler(props) {
     return goal.length > 0 || conflictField.length > 0 || dilemma.length > 0 || decision.length > 0|| actionField.length > 0;
   }
   
-  // function formatFilename(str) {
-  //   return str.replace(/^\w+-/, "");
-  // }
-  
-  // function handleFileChange(event) {
-  //   file.current = event.target.files[0];
-  // }
-  
   function saveFiller(filler) {
     return API.put("fillers", `/fillers/${props.match.params.id}`, {
       body: filler
@@ -137,7 +129,6 @@ export default function Filler(props) {
           <h2>The Filler Scene</h2>
           <Tabs defaultActiveKey={1} id="uncontrolled-tab">
             <Tab eventKey={1} title="1. The Goal">
-              <header>The Goal</header>
               <FormGroup controlId="goal">
                 <FormControl
                   value={goal}
@@ -147,7 +138,6 @@ export default function Filler(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={2} title="2. The Conflict">
-              <header>The Conflict</header>
               <FormGroup controlId="conflictField">
                 <FormControl
                   value={conflictField}
@@ -157,7 +147,6 @@ export default function Filler(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={3} title="3. The Dilemma">
-              <header>The Dilemma</header>
               <FormGroup controlId="dilemma">
                 <FormControl
                   value={dilemma}
@@ -167,7 +156,6 @@ export default function Filler(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={4} title="4. The Decision">
-              <header>The Decision</header>
               <FormGroup controlId="decision">
                 <FormControl
                   value={decision}
@@ -177,7 +165,6 @@ export default function Filler(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={5} title="5. The Action">
-              <header>The Action</header>
               <FormGroup controlId="actionField">
                 <FormControl
                   value={actionField}
@@ -187,24 +174,6 @@ export default function Filler(props) {
               </FormGroup>
             </Tab>
           </Tabs>
-          {/* {filler.attachment && (
-            <FormGroup>
-              <ControlLabel>Attachment</ControlLabel>
-              <FormControl.Static>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={filler.attachmentURL}
-                >
-                  {formatFilename(filler.attachment)}
-                </a>
-              </FormControl.Static>
-            </FormGroup>
-          )}
-          <FormGroup controlId="file">
-            {!filler.attachment && <ControlLabel>Attachment</ControlLabel>}
-            <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup> */}
           <LoaderButton
             block
             type="submit"

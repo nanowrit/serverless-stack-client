@@ -141,7 +141,6 @@ export default function Darkness(props) {
           <h2>The Darkness Scene</h2>
           <Tabs defaultActiveKey={1} id="uncontrolled-tab">
             <Tab eventKey={1} title="1. The Goal">
-              <header>The Goal</header>
               <FormGroup controlId="goal">
                 <FormControl
                   value={goal}
@@ -151,7 +150,6 @@ export default function Darkness(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={2} title="2. The Conflict">
-              <header>The Conflict</header>
               <FormGroup controlId="conflictField">
                 <FormControl
                   value={conflictField}
@@ -161,7 +159,6 @@ export default function Darkness(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={3} title="3. The Ultimate Disaster">
-              <header>The Ultimate Disaster</header>
               <FormGroup controlId="ultimateDisaster">
                 <FormControl
                   value={ultimateDisaster}
@@ -171,7 +168,6 @@ export default function Darkness(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={4} title="4. The Darkest Moment">
-              <header>The Darkest Moment</header>
               <FormGroup controlId="darkestMoment">
                 <FormControl
                   value={darkestMoment}
@@ -181,7 +177,6 @@ export default function Darkness(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={5} title="5. One Chance">
-              <header>One Chance</header>
               <FormGroup controlId="oneChance">
                 <FormControl
                   value={oneChance}
@@ -191,7 +186,6 @@ export default function Darkness(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={6} title="6. Do and Die">
-              <header>Do and Die</header>
               <FormGroup controlId="doAndDie">
                 <FormControl
                   value={doAndDie}
@@ -201,24 +195,6 @@ export default function Darkness(props) {
               </FormGroup>
             </Tab>
           </Tabs>
-          {/* {darkness.attachment && (
-            <FormGroup>
-              <ControlLabel>Attachment</ControlLabel>
-              <FormControl.Static>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={darkness.attachmentURL}
-                >
-                  {formatFilename(darkness.attachment)}
-                </a>
-              </FormControl.Static>
-            </FormGroup>
-          )}
-          <FormGroup controlId="file">
-            {!darkness.attachment && <ControlLabel>Attachment</ControlLabel>}
-            <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup> */}
           <LoaderButton
             block
             type="submit"

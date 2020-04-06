@@ -20,10 +20,6 @@ export default function NewMirror(props) {
     return goal.length > 0;
   }
 
-  // function handleFileChange(event) {
-  //   file.current = event.target.files[0];
-  // }
-
   async function handleSubmit(event) {
     event.preventDefault();
   
@@ -71,7 +67,6 @@ export default function NewMirror(props) {
       <form onSubmit={handleSubmit}>
         <Tabs defaultActiveKey={1} id="uncontrolled-tab">
           <Tab eventKey={1} title="1. The Goal">
-            <header>The Goal</header>
             <FormGroup controlId="goal">
               <FormControl
                 value={goal}
@@ -81,7 +76,6 @@ export default function NewMirror(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={2} title="2. The Conflict">
-          <header>The Conflict</header>
         <FormGroup controlId="conflictField">
           <FormControl
             value={conflictField}
@@ -91,7 +85,6 @@ export default function NewMirror(props) {
         </FormGroup>
           </Tab>
           <Tab eventKey={3} title="3. The Disaster">
-            <header>The Disaster</header>
             <FormGroup controlId="disaster">
               <FormControl
                 value={disaster}
@@ -101,7 +94,6 @@ export default function NewMirror(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={4} title="4. The Mirror Moment">
-            <header>The Mirror Moment</header>
             <FormGroup controlId="mirrorMoment">
               <FormControl
                 value={mirrorMoment}
@@ -111,7 +103,6 @@ export default function NewMirror(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={5} title="5. One More Time">
-            <header>One More Time</header>
             <FormGroup controlId="oneMoreTime">
               <FormControl
                 value={oneMoreTime}
@@ -121,7 +112,6 @@ export default function NewMirror(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={6} title="6. The Action">
-            <header>The Action</header>
             <FormGroup controlId="actionField">
               <FormControl
                 value={actionField}
@@ -131,10 +121,6 @@ export default function NewMirror(props) {
             </FormGroup>
           </Tab>
         </Tabs>
-        {/* <FormGroup controlId="file">
-          <ControlLabel>Attachment</ControlLabel>
-          <FormControl onChange={handleFileChange} type="file" />
-        </FormGroup> */}
         <LoaderButton
           block
           type="submit"

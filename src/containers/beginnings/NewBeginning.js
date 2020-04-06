@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
 import { API } from "aws-amplify";
 import { s3Upload } from "../../libs/awsLib";
 import LoaderButton from "../../components/LoaderButton";
-import config from "../../config";
+// import config from "../../config";
 import "../../containers/NewNote.css";
 
 export default function NewBeginning(props) {
@@ -28,13 +28,13 @@ export default function NewBeginning(props) {
   async function handleSubmit(event) {
     event.preventDefault();
   
-    if (file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
-      alert(
-        `Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE /
-          1000000} MB.`
-      );
-      return;
-    }
+    // if (file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
+    //   alert(
+    //     `Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE /
+    //       1000000} MB.`
+    //   );
+    //   return;
+    // }
   
     setIsLoading(true);
   
@@ -73,7 +73,6 @@ export default function NewBeginning(props) {
         <h2>The Beginning Scene</h2>
         <Tabs defaultActiveKey={1} id="uncontrolled-tab">
           <Tab eventKey={1} title="1. The Hook">
-            <header>The Hook</header>
             <FormGroup controlId="hook">
               <FormControl
                 value={hook}
@@ -83,7 +82,6 @@ export default function NewBeginning(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={2} title="2. The Back Story">
-            <header>The Back Story</header>
             <FormGroup controlId="backstory">
               <FormControl
                 value={backstory}
@@ -93,7 +91,6 @@ export default function NewBeginning(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={3} title="3. The Inciting Incident">
-            <header>The Inciting Incident</header>
             <FormGroup controlId="incitingIncident">
               <FormControl
                 value={incitingIncident}
@@ -103,7 +100,6 @@ export default function NewBeginning(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={4} title="4. The Trigger">
-            <header>The Trigger</header>
             <FormGroup controlId="triggerEvent">
               <FormControl
                 value={triggerEvent}
@@ -113,7 +109,6 @@ export default function NewBeginning(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={5} title="5. The Debate">
-            <header>The Debate</header>
             <FormGroup controlId="debate">
               <FormControl
                 value={debate}
@@ -123,7 +118,6 @@ export default function NewBeginning(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={6} title="6. The Decision">
-            <header>The Decision</header>
             <FormGroup controlId="decision">
               <FormControl
                 value={decision}
@@ -133,7 +127,6 @@ export default function NewBeginning(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={7} title="7. The Threshold">
-            <header>The Threshold</header>
             <FormGroup controlId="threshold">
               <FormControl
                 value={threshold}

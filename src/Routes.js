@@ -20,6 +20,7 @@ import ChangeEmail from "./containers/ChangeEmail";
 import ResetPassword from "./containers/ResetPassword";
 import ChangePassword from "./containers/ChangePassword";
 import Instructions from "./containers/Instructions";
+import Library from "./containers/Library";
 import ClassicStories from "./containers/ClassicStories";
 import ElephantHeart from "./containers/stories/ElephantHeart";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
@@ -51,6 +52,7 @@ export default function Routes({ appProps }) {
       <AuthenticatedRoute path="/recommitments/:id" exact component={Recommitment} appProps={appProps} />
       <AuthenticatedRoute path="/climaxs/new" exact component={NewClimax} appProps={appProps} />
       <AuthenticatedRoute path="/climaxs/:id" exact component={Climax} appProps={appProps} />
+      <UnauthenticatedRoute path="/library" exact component={Library} appProps={appProps} />
       <UnauthenticatedRoute path="/classic-stories" exact component={ClassicStories} appProps={appProps} />
       <UnauthenticatedRoute path="/classic-stories/the-tower-of-the-elephant" exact component={ElephantHeart} appProps={appProps} />
       { /* Finally, catch all unmatched routes */ }

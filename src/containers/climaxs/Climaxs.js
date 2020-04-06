@@ -143,7 +143,6 @@ export default function Climax(props) {
       {climax && (
         <form onSubmit={handleSubmit}>
           <h2>Your Climax Scene</h2>
-          <header>The Struggle</header>
         <FormGroup controlId="struggle">
           <FormControl
             value={struggle}
@@ -151,7 +150,6 @@ export default function Climax(props) {
             onChange={e => setStruggle(e.target.value)}
           />
         </FormGroup>
-        <header>The Doubt</header>
         <FormGroup controlId="doubt">
           <FormControl
             value={doubt}
@@ -159,7 +157,6 @@ export default function Climax(props) {
             onChange={e => setDoubt(e.target.value)}
           />
         </FormGroup>
-        <header>The Unexpected</header>
         <FormGroup controlId="unexpected">
           <FormControl
             value={unexpected}
@@ -167,7 +164,6 @@ export default function Climax(props) {
             onChange={e => setUnexpected(e.target.value)}
           />
         </FormGroup>
-        <header>The Climax</header>
         <FormGroup controlId="climaxField">
           <FormControl
             value={climaxField}
@@ -175,7 +171,6 @@ export default function Climax(props) {
             onChange={e => setClimaxField(e.target.value)}
           />
         </FormGroup>
-        <header>Poetic Justice</header>
         <FormGroup controlId="poeticJustice">
           <FormControl
             value={poeticJustice}
@@ -183,7 +178,6 @@ export default function Climax(props) {
             onChange={e => setPoeticJustice(e.target.value)}
           />
         </FormGroup>
-        <header>Poetic Reward</header>
         <FormGroup controlId="poeticReward">
           <FormControl
             value={poeticReward}
@@ -191,7 +185,6 @@ export default function Climax(props) {
             onChange={e => setPoeticReward(e.target.value)}
           />
         </FormGroup>
-        <header>Wrapping it Up</header>
         <FormGroup controlId="wrapUp">
           <FormControl
             value={wrapUp}

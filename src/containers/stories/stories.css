@@ -1,0 +1,10 @@
+.stories {
+    padding-bottom: 25px;
+}
+
+.stories p {
+    font-family: 'Crimson Text', serif;
+    font-size: larger;
+    color: #F1F5ED;
+    text-align: justify;
+}

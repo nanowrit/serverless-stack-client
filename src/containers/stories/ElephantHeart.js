@@ -1,12 +1,13 @@
 import React from "react";
 import "../Lander.css";
+import "./stories.css";
 import { Tabs, Tab } from "react-bootstrap";
 
 export default function ElephantHeart(props) {
     return (
-        <div className="Lander Elephant">
+        <div className="Library stories">
             <h1>The Tower of The Elephant</h1>
-            <Tabs defaultActiveKey={1} id="elephant-tabs">
+            <Tabs defaultActiveKey={1} className="stories" id="elephant-tabs">
                 <Tab eventKey={1} title="Chapter 1">
                     <p>
                     TORCHES flared murkily on the revels in the Maul, where the thieves of the east held carnival by night. In the Maul they could carouse and roar as they liked, for honest people shunned the quarters, and watchmen, well paid with stained coins, did not interfere with their sport. Along the crooked, unpaved streets with their heaps of refuse and sloppy puddles, drunken roisterers staggered, roaring. Steel glinted in the shadows where wolf preyed on wolf, and from the darkness rose the shrill laughter of women, and the sounds of scufflings and strugglings. Torchlight licked luridly from broken windows and wide-thrown doors, and out of those doors, stale smells of wine and rank sweaty bodies, clamor of drinking-jacks and fists hammered on rough tables, snatches of obscene songs, rushed like a blow in the face.

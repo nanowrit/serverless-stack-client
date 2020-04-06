@@ -57,15 +57,7 @@ export default function Recommitment(props) {
   function validateForm() {
     return goal.length > 0 || conflictField.length > 0 || revelation.length > 0 || praiseTheEnemy.length > 0 || doOrDie.length > 0 || crossThreshold.length > 0;
   }
-  
-  // function formatFilename(str) {
-  //   return str.replace(/^\w+-/, "");
-  // }
-  
-  // function handleFileChange(event) {
-  //   file.current = event.target.files[0];
-  // }
-  
+
   function saveRecommitment(recommitment) {
     return API.put("recommitments", `/recommitments/${props.match.params.id}`, {
       body: recommitment
@@ -141,7 +133,6 @@ export default function Recommitment(props) {
           <h2>Your Recommitment Scene</h2>
           <Tabs defaultActiveKey={1} id="uncontrolled-tab">
             <Tab eventKey={1} title="1. The Goal">
-              <header>The Goal</header>
               <FormGroup controlId="goal">
                 <FormControl
                   value={goal}
@@ -151,7 +142,6 @@ export default function Recommitment(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={2} title="2. The Conflict">
-              <header>The Conflict</header>
               <FormGroup controlId="conflictField">
                 <FormControl
                   value={conflictField}
@@ -161,7 +151,6 @@ export default function Recommitment(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={3} title="3. The Revelation">
-              <header>The Revelation</header>
               <FormGroup controlId="revelation">
                 <FormControl
                   value={revelation}
@@ -171,7 +160,6 @@ export default function Recommitment(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={4} title="4. Praising the Enemy">
-              <header>Praising the Enemy</header>
               <FormGroup controlId="praiseTheEnemy">
                 <FormControl
                   value={praiseTheEnemy}
@@ -181,7 +169,6 @@ export default function Recommitment(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={5} title="5. Do or Die">
-              <header>Do or Die</header>
               <FormGroup controlId="doOrDie">
                 <FormControl
                   value={doOrDie}
@@ -191,7 +178,6 @@ export default function Recommitment(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={6} title="6. Crossing the Threshold">
-              <header>Crossing the Threshold</header>
               <FormGroup controlId="crossThreshold">
                 <FormControl
                   value={crossThreshold}
@@ -201,24 +187,6 @@ export default function Recommitment(props) {
               </FormGroup>
             </Tab>
           </Tabs>
-          {/* {recommitment.attachment && (
-            <FormGroup>
-              <ControlLabel>Attachment</ControlLabel>
-              <FormControl.Static>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={recommitment.attachmentURL}
-                >
-                  {formatFilename(recommitment.attachment)}
-                </a>
-              </FormControl.Static>
-            </FormGroup> */}
-          {/* )}
-          <FormGroup controlId="file">
-            {!recommitment.attachment && <ControlLabel>Attachment</ControlLabel>}
-            <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup> */}
           <LoaderButton
             block
             type="submit"

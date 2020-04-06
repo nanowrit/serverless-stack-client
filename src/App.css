@@ -1,14 +1,38 @@
 .App {
+  height: 100%;
+  min-height: 105vh;
   margin-top: 15px;
   padding-bottom: 75px;
 }
 
+.App .navbar {
+  border: none;
+  background-color: rgba(66, 62, 55, .5);
+}
+
+.App .nav-tabs {
+  border-bottom: none;
+}
+
+.App .nav li a:hover {
+  color: #C4BBBA;
+}
+
 .App .navbar-brand {
   font-family: 'Trade Winds', cursive;
+  text-shadow: 1px 1px 2px black, 0 0 5px #C4BBBA, 0 0 5px #423E37;
   font-size: xx-large;
   font-weight: bold;
 }
 
-#AppContainer {
-  padding-bottom: 250px;
+.center {
+  text-align: center;
+}
+
+.Aladin {
+  font-family: 'Aladin', cursive;
+}
+
+.Gotu {
+  font-family: 'Gotu', sans-serif;
 }

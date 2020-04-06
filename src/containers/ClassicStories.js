@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Stories(props) {
     return (
-        <div className="Lander">
+        <div className="Library">
             <h1>Classic Pulp Fiction Stories</h1>
             <Tabs defaultActiveKey={1} id="stories-tabs">
                 <Tab eventKey={1} title="Robert E. Howard">

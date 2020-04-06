@@ -1,9 +1,18 @@
+.Notes {
+  padding-bottom: 25px;
+}
 .Notes form {
-  font-family: 'Crimson Text', serif;
-  font-size: larger;
-  font-weight: bold;
   color: #525C52;
   padding-bottom: 15px;
+  }
+  .Notes .nav .active a {
+    color: #423E37;
+  }
+  .Notes .nav li>a {
+    color: #C4BBBA;
+  }
+  .Notes .nav li>a:hover {
+    color: #423E37;
   }
 
   .Notes form header {
@@ -11,13 +20,15 @@
   }
   
   .Notes form textarea {
-    height: 300px;
+    height: 100vh;
     font-size: 24px;
+    padding-top: 45px;
+    line-height: 45px;
     background: repeating-linear-gradient(
       0,
       #423E37,
       #E1FCDF 1px,
-      #E1FCDF 13%,
-      #E1FCDF 10%
+      #E1FCDF 45px,
+      #E1FCDF 45px
     );
   }

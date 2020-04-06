@@ -58,14 +58,6 @@ export default function Mirror(props) {
     return goal.length > 0 || conflictField.length > 0 || disaster.length > 0 || mirrorMoment.length > 0 || oneMoreTime.length > 0 || actionField.length > 0;
   }
   
-  // function formatFilename(str) {
-  //   return str.replace(/^\w+-/, "");
-  // }
-  
-  // function handleFileChange(event) {
-  //   file.current = event.target.files[0];
-  // }
-  
   function saveMirror(mirror) {
     return API.put("mirrors", `/mirrors/${props.match.params.id}`, {
       body: mirror
@@ -141,7 +133,6 @@ export default function Mirror(props) {
           <h2>Your Mirror Scene</h2>
           <Tabs defaultActiveKey={1} id="uncontrolled-tab">
             <Tab eventKey={1} title="1. The Goal">
-              <header>The Goal</header>
               <FormGroup controlId="goal">
                 <FormControl
                   value={goal}
@@ -151,7 +142,6 @@ export default function Mirror(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={2} title="2. The Conflict">
-              <header>The Conflict</header>
               <FormGroup controlId="conflictField">
                 <FormControl
                   value={conflictField}
@@ -161,7 +151,6 @@ export default function Mirror(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={3} title="3. The Disaster">
-              <header>The Disaster</header>
               <FormGroup controlId="disaster">
                 <FormControl
                   value={disaster}
@@ -171,7 +160,6 @@ export default function Mirror(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={4} title="4. The Mirror Moment">
-              <header>The Mirror Moment</header>
               <FormGroup controlId="mirrorMoment">
                 <FormControl
                   value={mirrorMoment}
@@ -181,7 +169,6 @@ export default function Mirror(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={5} title="5. One More Time">
-              <header>One More Time</header>
               <FormGroup controlId="oneMoreTime">
                 <FormControl
                   value={oneMoreTime}
@@ -191,7 +178,6 @@ export default function Mirror(props) {
               </FormGroup>
             </Tab>
             <Tab eventKey={6} title="6. The Action">
-              <header>The Action</header>
               <FormGroup controlId="actionField">
                 <FormControl
                   value={actionField}
@@ -201,24 +187,6 @@ export default function Mirror(props) {
               </FormGroup>
             </Tab>
           </Tabs>
-          {/* {mirror.attachment && (
-            <FormGroup>
-              <ControlLabel>Attachment</ControlLabel>
-              <FormControl.Static>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={mirror.attachmentURL}
-                >
-                  {formatFilename(mirror.attachment)}
-                </a>
-              </FormControl.Static>
-            </FormGroup>
-          )}
-          <FormGroup controlId="file">
-            {!mirror.attachment && <ControlLabel>Attachment</ControlLabel>}
-            <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup> */}
           <LoaderButton
             block
             type="submit"

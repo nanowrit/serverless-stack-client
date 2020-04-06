@@ -73,7 +73,6 @@ export default function NewClimax(props) {
         <h2>The Climax Scene</h2>
         <Tabs defaultActiveKey={1} id="uncontrolled-tab">
           <Tab eventKey={1} title="1. The Struggle">
-            <header>The Struggle</header>
             <FormGroup controlId="struggle">
               <FormControl
                 value={struggle}
@@ -83,7 +82,6 @@ export default function NewClimax(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={2} title="2. The Doubt">
-            <header>The Doubt</header>
             <FormGroup controlId="doubt">
               <FormControl
                 value={doubt}
@@ -93,7 +91,6 @@ export default function NewClimax(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={3} title="3. The Unexpected">
-            <header>The Unexpected</header>
             <FormGroup controlId="unexpected">
               <FormControl
                 value={unexpected}
@@ -103,7 +100,6 @@ export default function NewClimax(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={4} title="4. The Climax">
-            <header>The Climax</header>
             <FormGroup controlId="climax">
               <FormControl
                 value={climax}
@@ -113,7 +109,6 @@ export default function NewClimax(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={5} title="5. Poetic Justice">
-            <header>Poetic Justice</header>
             <FormGroup controlId="poeticJustice">
               <FormControl
                 value={poeticJustice}
@@ -123,7 +118,6 @@ export default function NewClimax(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={6} title="6. Poetic Reward">
-            <header>Poetic Reward</header>
             <FormGroup controlId="poeticReward">
               <FormControl
                 value={poeticReward}
@@ -133,7 +127,6 @@ export default function NewClimax(props) {
             </FormGroup>
           </Tab>
           <Tab eventKey={7} title="7. Wrapping it Up">
-            <header>Wrapping it Up</header>
             <FormGroup controlId="wrapUp">
               <FormControl
                 value={wrapUp}
@@ -143,10 +136,6 @@ export default function NewClimax(props) {
             </FormGroup>
           </Tab>
         </Tabs>
-        {/* <FormGroup controlId="file">
-          <ControlLabel>Attachment</ControlLabel>
-          <FormControl onChange={handleFileChange} type="file" />
-        </FormGroup> */}
         <LoaderButton
           block
           type="submit"

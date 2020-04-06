@@ -58,14 +58,6 @@ function App(props) {
     props.history.push("/login");
   }
 
-  // function renderFooter() {
-  //   return (
-  //     <div className="footer">
-  //       <p>nanowritlabs &copy; 2020</p>
-  //     </div>
-  //   )
-  // }
-
   return (
     !isAuthenticating && (
       <div className="App container" id="AppContainer">
@@ -101,7 +93,9 @@ function App(props) {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
+        <Routes appProps={{ 
+          isAuthenticated, userHasAuthenticated
+        }} />
         <Footer />
       </div>
     )

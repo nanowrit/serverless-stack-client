@@ -118,13 +118,27 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <LinkContainer key="new" to="/beginnings/new">
-          <ListGroupItem>
-            <h4>
-              <b>{"\uFF0B"}</b> Create a new beginning scene
-            </h4>
-          </ListGroupItem>
-        </LinkContainer>
+        <div>
+          { 
+          beginnings.length > 0 ? (
+            <LinkContainer key="new" to="#">
+            <ListGroupItem>
+              <h2 className="Gotu center">
+                Acme Legal Pads
+              </h2>
+            </ListGroupItem>
+          </LinkContainer>
+          ) : (
+            <LinkContainer key="new" to="/beginnings/new">
+            <ListGroupItem>
+              <h4>
+                <b>{"\uFF0B"}</b> Create a new beginning scene
+              </h4>
+            </ListGroupItem>
+          </LinkContainer>
+          )
+          }
+        </div>
       )
     );
   }
@@ -149,16 +163,27 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        // <div>
-        //   { renderAddNewButton(mirrors) }
-        // </div>
-        <LinkContainer key="new" to="/mirrors/new">
+        <div>
+        { 
+        mirrors.length > 0 ? (
+          <LinkContainer key="new" to="#">
+          <ListGroupItem>
+            <h2 className="Gotu center">
+              Acme Legal Pads
+            </h2>
+          </ListGroupItem>
+        </LinkContainer>
+        ) : (
+          <LinkContainer key="new" to="/mirrors/new">
           <ListGroupItem>
             <h4>
               <b>{"\uFF0B"}</b> Create a new mirror scene
             </h4>
           </ListGroupItem>
         </LinkContainer>
+        )
+        }
+      </div>
       )
     );
   }
@@ -183,13 +208,27 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <LinkContainer key="new" to="/darknesss/new">
+        <div>
+        { 
+        darknesss.length > 0 ? (
+          <LinkContainer key="new" to="#">
+          <ListGroupItem>
+            <h2 className="Gotu center">
+              Acme Legal Pads
+            </h2>
+          </ListGroupItem>
+        </LinkContainer>
+        ) : (
+          <LinkContainer key="new" to="/darknesss/new">
           <ListGroupItem>
             <h4>
               <b>{"\uFF0B"}</b> Create a new darkness scene
             </h4>
           </ListGroupItem>
         </LinkContainer>
+        )
+        }
+      </div>
       )
     );
   }
@@ -214,13 +253,27 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <LinkContainer key="new" to="/fillers/new">
+        <div>
+        { 
+        fillers.length > 0 ? (
+          <LinkContainer key="new" to="#">
+          <ListGroupItem>
+            <h2 className="Gotu center">
+              Acme Legal Pads
+            </h2>
+          </ListGroupItem>
+        </LinkContainer>
+        ) : (
+          <LinkContainer key="new" to="/fillers/new">
           <ListGroupItem>
             <h4>
               <b>{"\uFF0B"}</b> Create a new filler scene
             </h4>
           </ListGroupItem>
         </LinkContainer>
+        )
+        }
+      </div>
       )
     );
   }
@@ -245,13 +298,27 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <LinkContainer key="new" to="/recommitments/new">
+        <div>
+        { 
+        recommitments.length > 0 ? (
+          <LinkContainer key="new" to="#">
+          <ListGroupItem>
+            <h2 className="Gotu center">
+              Acme Legal Pads
+            </h2>
+          </ListGroupItem>
+        </LinkContainer>
+        ) : (
+          <LinkContainer key="new" to="/recommitments/new">
           <ListGroupItem>
             <h4>
               <b>{"\uFF0B"}</b> Create a new re-commitment scene
             </h4>
           </ListGroupItem>
         </LinkContainer>
+        )
+        }
+      </div>
       )
     );
   }
@@ -278,33 +345,30 @@ export default function Home(props) {
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <LinkContainer key="new" to="/climaxs/new">
-          <ListGroupItem>
-            <h4>
-              <b>{"\uFF0B"}</b> Create a new climax scene
-            </h4>
-          </ListGroupItem>
-        </LinkContainer>
+        <div>
+          {
+          climaxs.length > 0 ? (
+            <LinkContainer key="new" to="#">
+            <ListGroupItem>
+              <h2 className="Gotu center">
+                Acme Legal Pads
+              </h2>
+            </ListGroupItem>
+          </LinkContainer>
+        ) : (
+          <LinkContainer key="new" to="/climaxs/new">
+            <ListGroupItem>
+              <h4>
+                <b>{"\uFF0B"}</b> Create a new climax scene
+              </h4>
+            </ListGroupItem>
+          </LinkContainer>
+        )
+        }
+      </div>
       )
     );
   }
-
-  // function renderLander() {
-  //   return (
-  //     <div className="lander">
-  //       <h1>SceneBuilder</h1>
-  //       <p>A simple scene creating workflow</p>
-  //       <div>
-  //         <Link to="/login" className="btn btn-info btn-lg">
-  //           Login
-  //         </Link>
-  //         <Link to="/signup" className="btn btn-success btn-lg">
-  //           Signup
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 
   function renderProgressBar() {
     return (
@@ -321,37 +385,31 @@ export default function Home(props) {
         <PageHeader>Your Scenes</PageHeader>
         <Tabs defaultActiveKey={1} id="uncontrolled-tab">
           <Tab eventKey={1} className="tigerPoo" title="1. The Beginning Scene">
-            <h2>The Beginning Scene</h2>
             <ListGroup>
               {!isLoading && renderBeginningsList(beginnings)}
             </ListGroup>
           </Tab>
           <Tab eventKey={2} title="2. The Mirror Scene">
-            <h2>The Mirror Scene</h2>
               <ListGroup>
                 {!isLoading && renderMirrorsList(mirrors)}
               </ListGroup>
           </Tab>
           <Tab eventKey={3} title="3. The Re-Commitment Scene">
-            <h2>The Re-Commitment Scene</h2>
               <ListGroup>
                 {!isLoading && renderRecommitmentList(recommitments)}
               </ListGroup>
           </Tab>
           <Tab eventKey={4} title="4. The Darkness Scene">
-            <h2>The Darkness Scene</h2>
               <ListGroup>
               {!isLoading && renderDarknessList(darknesss)}
               </ListGroup>
           </Tab>
           <Tab eventKey={5} title="5. The Climax Scene">
-            <h2>The Climax Scene</h2>
               <ListGroup>
               {!isLoading && renderClimaxList(climaxs)}
               </ListGroup>
           </Tab>
           <Tab eventKey={6} title="6. The Filler Scene">
-            <h2>The Filler Scene</h2>
               <ListGroup>
               {!isLoading && renderFillerList(fillers)}
               </ListGroup>
