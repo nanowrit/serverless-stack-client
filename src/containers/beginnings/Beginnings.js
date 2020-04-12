@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel, Tabs, Tab } from "react-bootstrap";
+import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
@@ -61,9 +61,9 @@ export default function Beginning(props) {
     return hook.length > 0 || backstory.length > 0 || incitingIncident.length > 0 || triggerEvent.length > 0 || debate.length > 0 || decision.length > 0 || threshold.length > 0;
   }
   
-  function formatFilename(str) {
-    return str.replace(/^\w+-/, "");
-  }
+  // function formatFilename(str) {
+  //   return str.replace(/^\w+-/, "");
+  // }
   
   // function handleFileChange(event) {
   //   file.current = event.target.files[0];
@@ -208,7 +208,7 @@ export default function Beginning(props) {
               </FormGroup>
             </Tab>
           </Tabs>
-          {beginning.attachment && (
+          {/* {beginning.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
               <FormControl.Static>
@@ -221,7 +221,7 @@ export default function Beginning(props) {
                 </a>
               </FormControl.Static>
             </FormGroup>
-          )}
+          )} */}
           <LoaderButton
             block
             type="submit"

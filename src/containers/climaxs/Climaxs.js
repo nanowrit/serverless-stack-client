@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
-import "../../containers/Notes.css";
+import "../../containers/Notes.css"; 
 
 export default function Climax(props) {
     const file = useRef(null);
@@ -61,13 +61,13 @@ export default function Climax(props) {
     return struggle.length > 0 || doubt.length > 0 || unexpected.length > 0 || climaxField.length > 0 || poeticJustice.length > 0 || poeticReward.length > 0 || wrapUp.length > 0;
   }
   
-  function formatFilename(str) {
-    return str.replace(/^\w+-/, "");
-  }
+  // function formatFilename(str) {
+  //   return str.replace(/^\w+-/, "");
+  // }
   
-  function handleFileChange(event) {
-    file.current = event.target.files[0];
-  }
+  // function handleFileChange(event) {
+  //   file.current = event.target.files[0];
+  // }
   
   function saveClimax(climax) {
     return API.put("climaxs", `/climaxs/${props.match.params.id}`, {
@@ -143,56 +143,72 @@ export default function Climax(props) {
       {climax && (
         <form onSubmit={handleSubmit}>
           <h2>Your Climax Scene</h2>
-        <FormGroup controlId="struggle">
-          <FormControl
-            value={struggle}
-            componentClass="textarea"
-            onChange={e => setStruggle(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="doubt">
-          <FormControl
-            value={doubt}
-            componentClass="textarea"
-            onChange={e => setDoubt(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="unexpected">
-          <FormControl
-            value={unexpected}
-            componentClass="textarea"
-            onChange={e => setUnexpected(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="climaxField">
-          <FormControl
-            value={climaxField}
-            componentClass="textarea"
-            onChange={e => setClimaxField(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="poeticJustice">
-          <FormControl
-            value={poeticJustice}
-            componentClass="textarea"
-            onChange={e => setPoeticJustice(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="poeticReward">
-          <FormControl
-            value={poeticReward}
-            componentClass="textarea"
-            onChange={e => setPoeticReward(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="wrapUp">
-          <FormControl
-            value={wrapUp}
-            componentClass="textarea"
-            onChange={e => setWrapUp(e.target.value)}
-          />
-        </FormGroup>
-          {climax.attachment && (
+          <Tabs defaultActiveKey={1} id="edit-climax-tabs">
+            <Tab eventKey={1} title="The Struggle">
+            <FormGroup controlId="struggle">
+              <FormControl
+                value={struggle}
+                componentClass="textarea"
+                onChange={e => setStruggle(e.target.value)}
+              />
+            </FormGroup>
+            </Tab>
+            <Tab eventKey={2} title="The Doubt">
+              <FormGroup controlId="doubt">
+                <FormControl
+                  value={doubt}
+                  componentClass="textarea"
+                  onChange={e => setDoubt(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={3} title="The Unexpected">
+              <FormGroup controlId="unexpected">
+                <FormControl
+                  value={unexpected}
+                  componentClass="textarea"
+                  onChange={e => setUnexpected(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={4} title="The Climax">
+              <FormGroup controlId="climaxField">
+                <FormControl
+                  value={climaxField}
+                  componentClass="textarea"
+                  onChange={e => setClimaxField(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={5} title="Poetic Justice">
+              <FormGroup controlId="poeticJustice">
+                <FormControl
+                  value={poeticJustice}
+                  componentClass="textarea"
+                  onChange={e => setPoeticJustice(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={6} title="Poetic Reward">
+              <FormGroup controlId="poeticReward">
+                <FormControl
+                  value={poeticReward}
+                  componentClass="textarea"
+                  onChange={e => setPoeticReward(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+            <Tab eventKey={7} title="Wrapping it Up">
+              <FormGroup controlId="wrapUp">
+                <FormControl
+                  value={wrapUp}
+                  componentClass="textarea"
+                  onChange={e => setWrapUp(e.target.value)}
+                />
+              </FormGroup>
+            </Tab>
+          </Tabs>
+          {/* {climax.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
               <FormControl.Static>
@@ -205,11 +221,7 @@ export default function Climax(props) {
                 </a>
               </FormControl.Static>
             </FormGroup>
-          )}
-          <FormGroup controlId="file">
-            {!climax.attachment && <ControlLabel>Attachment</ControlLabel>}
-            <FormControl onChange={handleFileChange} type="file" />
-          </FormGroup>
+          )} */}
           <LoaderButton
             block
             type="submit"

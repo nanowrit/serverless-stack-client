@@ -2,17 +2,17 @@ const dev = {
   STRIPE_KEY: "pk_test_mFOTEjCRlK8aWZYn2OBtz5PD00C6giAjRT",
   s3: {
     REGION: "us-west-2",
-    BUCKET: "scenebuilder-app-api-dev-attachmentsbucket-1ul2thctht74v"
+    BUCKET: "nanowritlabs-app-ext-scenebuider-uploads-s3bucket-ydu69bnunnjv"
   },
   apiGateway: {
     REGION: "us-west-2",
-    URL: "https://rl1hl9t5z8.execute-api.us-west-2.amazonaws.com/dev"
+    URL: "https://k9qztc7af6.execute-api.us-west-2.amazonaws.com/dev"
   },
   cognito: {
     REGION: "us-west-2",
-    USER_POOL_ID: "us-west-2_Xff92vaow",
-    APP_CLIENT_ID: "2efvaf28f81fn6c0ij0oi6892b",
-    IDENTITY_POOL_ID: "us-west-2:0b3e359e-a56d-47e5-afdf-bd35f67f068f"
+    USER_POOL_ID: "us-west-2_QokOSpn4n",
+    APP_CLIENT_ID: "6ic5b6g580i81e3gn8hbiedps2",
+    IDENTITY_POOL_ID: "us-west-2:3aef7dda-25d5-4d13-b007-1aedb9bc819b"
   },
   social: {
     FB: "891073078019739"
