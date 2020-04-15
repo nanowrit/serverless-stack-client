@@ -24,6 +24,7 @@ import Library from "./containers/Library";
 import Laboratory from "./containers/Laboratory";
 import ClassicStories from "./containers/ClassicStories";
 import ElephantHeart from "./containers/stories/ElephantHeart";
+import TermsOfUse from "./containers/TermsOfUse";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 
@@ -57,6 +58,7 @@ export default function Routes({ appProps }) {
       <Route path="/laboratory" exact component={Laboratory} appProps={appProps} />
       <Route path="/classic-stories" exact component={ClassicStories} appProps={appProps} />
       <Route path="/classic-stories/the-tower-of-the-elephant" exact component={ElephantHeart} appProps={appProps} />
+      <Route path="/terms-of-use" exact component={TermsOfUse} />
       { /* Finally, catch all unmatched routes */ }
       <Route component={NotFound} />
     </Switch>

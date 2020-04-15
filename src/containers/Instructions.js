@@ -15,10 +15,7 @@ export default function Instructions(props) {
                     <h2>Introduction</h2>
                 </Tab>
                 <Tab eventKey={3} title="The Scenes">
-                    <Tabs defaultActiveKey={1} id="instructions-scenes-tab">
-                        {/* <Tab eventKey={1} title="What are the Scenes?">
-                        <h2>The Scenes</h2>
-                        </Tab> */}
+                    <Tabs defaultActiveKey={1} id="instructions-scenes-tab" className="pale-silver">
                         <Tab eventKey={1} title="The Beginning Scene">
                             <h3>Beginning Scene</h3>
                             <Tabs defaultActiveKey={1} id="beginning-scene-instructions-tab">

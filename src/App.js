@@ -66,6 +66,7 @@ function App(props) {
             <Navbar.Brand>
               <Link to="/">Nanowrit Labs</Link>
             </Navbar.Brand>
+            <h4 className="pale-silver">beta version</h4>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
